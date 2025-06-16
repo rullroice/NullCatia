@@ -7,7 +7,7 @@ const port = process.env.PORT || 3000;
 
 // Configuración EJS
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'src', 'views'));
 
 // Middlewares esenciales
 app.use(express.json());
@@ -20,9 +20,23 @@ app.get('/', (req, res) => {
   res.render('index', { title: 'Inicio' });
 });
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+// Rutas de las entidades
+const catRoutes = require('./src/routes/catRoutes'); // nombre plural para seguir el patrón
+const clanRoutes = require('./src/routes/clanRoutes');
+const territoryRoutes = require('./src/routes/territoryRoutes');
+const scrollRoutes = require('./src/routes/scrollRoutes');
+
+app.use('/gatitos', catRoutes);
+app.use('/clanes', clanRoutes);
+app.use('/territorios', territoryRoutes);
+app.use('/scrolls', scrollRoutes);
+
+// Middleware para rutas no encontradas (404)
+app.use((req, res, next) => {
+  res.status(404).render('404', { title: 'Página no encontrada' });
 });
 
-const catRoutes = require('./src/routes/catRoutes');
-app.use('/gatitos', catRoutes);
+// Levantar servidor
+app.listen(port, () => {
+  console.log(`Servidor escuchando en http://localhost:${port}`);
+});
