@@ -1,8 +1,5 @@
-Claro, entiendo. He ampliado la documentación y he reemplazado los bloques de código por la indicación `(Espacio para código)`, haciendo hincapié en dónde se ubicaría cada fragmento relevante. También he ajustado la redacción para que sea más extensa y clara, sin perder el foco en la evaluación.
-
----
-
 ## Evaluación – Proyecto NULLCATIA: Un Viaje a la Modernización Felina
+Nombres: Vicente Lizana, Jhon (apellido no me lo se), Raul Ibarra, Jorge Moncada (creo)
 
 ### Introducción
 
@@ -14,7 +11,7 @@ Con la inminente **Transformación Felina 4.0**, el venerable Consejo de NULLCAT
 * **Los Controladores del Equilibrio:** Estos monjes, guardianes de la lógica y la integridad, se encargan de validar meticulosamente cada petición entrante. Con la fuerza del `async/await`, repelen cualquier intento de dependencias circulares, asegurando un flujo de datos lineal y predecible.
 * **El Enrutador de los Mil Caminos:** Un laberinto cuidadosamente ordenado en capas, donde cada **endpoint RESTful** actúa como una revelación, desvelando un fragmento crucial de la vasta memoria gatuna y guiando las peticiones a su destino.
 
-El desafío más formidable se alza en el corazón del reino: **El Laberinto de Enrutamiento**. Este entramado infinito de caminos REST amenaza con desviar y perder cada petición en bucles sin fin. Solo un mapa claro de rutas y una estructura de capas bien definida podrán dominarlo. La misión principal, como novicio del Consejo, es implementar los ritos backend necesarios para contener esta amenaza: diseñar **modelos de datos normalizados**, silenciar excepciones con un riguroso **manejo de errores `try/catch`** y erigir **baluartes de autenticación con `middleware`**. El éxito en estas tareas es fundamental para que el Reino de NULLCATIA conserve sus vidas y prospere.
+El desafío más formidable se alza en el corazón del reino: **El Laberinto de Enrutamiento**. Este entramado infinito de caminos REST amenaza con desviar y perder cada petición en bucles sin fin. Solo un mapa claro de rutas y una estructura de capas bien definida podrán dominarlo. Tu misión principal, como novicio del Consejo, es implementar los ritos backend necesarios para contener esta amenaza: diseñar **modelos de datos normalizados**, silenciar excepciones con un riguroso **manejo de errores `try/catch`** y erigir **baluartes de autenticación con `middleware`**. El éxito en estas tareas es fundamental para que el Reino de NULLCATIA conserve sus vidas y prospere.
 
 Además, el Backend Sagrado solo alcanzará su máximo esplendor si es reflejado por una **capa de presentación (Frontend)** pulcra y accesible. Para ello, el Consejo ha convocado a dos héroes adicionales: **Sparkle Templatetail**, la arquitecta de vistas, y **Luna Styleshade**, la maestra de estilos, quienes trabajarán en conjunto con los héroes del backend para iluminar los caminos trazados con vistas coherentes y estilos unificados, asegurando que las peticiones de los usuarios viajen sin extraviarse en el Laberinto.
 
@@ -29,6 +26,14 @@ La base de datos MySQL es la columna vertebral del Backend Sagrado, almacenando 
 El archivo `database/schema.sql` es el script fundamental que contiene la definición completa de todas estas tablas. Incluye las **claves primarias auto-incrementales** para la identificación única de cada registro, las **claves foráneas** que establecen las relaciones lógicas entre las tablas (por ejemplo, un gatito pertenece a un clan, un territorio pertenece a un clan, etc.), y los **índices** necesarios sobre columnas que serán frecuentemente utilizadas en búsquedas y uniones para acelerar las operaciones.
 
 (Espacio para el código SQL completo de `database/schema.sql` para la creación de la base de datos y todas las tablas, incluyendo llaves primarias, foráneas y restricciones como `ON DELETE RESTRICT`, `ON DELETE SET NULL` y `ON UPDATE CASCADE`).
+
+---
+
+##### Captura de Pantalla: Diagrama Entidad-Relación (ERD) de la Base de Datos
+
+[Espacio para una captura de pantalla del diagrama Entidad-Relación (ERD) de la base de datos, mostrando las tablas y sus relaciones.]
+
+---
 
 Este diseño de base de datos no solo organiza la información de manera lógica, sino que también garantiza la **integridad referencial** mediante políticas de eliminación y actualización:
 
@@ -65,21 +70,59 @@ graph TD
 
 * **`config/`**: Esta carpeta centralizará todos los archivos de configuración de la aplicación. Aquí se gestionarán parámetros cruciales como las credenciales de conexión a la base de datos, puertos de escucha del servidor y otras variables de entorno esenciales para el funcionamiento del sistema.
 
+    ---
+
+    ##### Captura de Pantalla: Contenido de la carpeta `config/`
+
+    [Espacio para una captura de pantalla del explorador de archivos mostrando los archivos dentro de la carpeta `config/`.]
+
+    ---
+
 * **`models/`**: Cada archivo dentro de esta carpeta representará un **modelo de datos**, correspondiendo generalmente a una tabla de la base de datos (por ejemplo, `catModel.js`, `clanModel.js`). Los modelos son responsables de encapsular la lógica de acceso a datos, interactuando directamente con la base de datos. Utilizarán la librería `mysql2` junto con las capacidades de `async/await` o promesas para realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) de manera asíncrona y eficiente. También manejarán las transformaciones necesarias de los datos de la base de datos a objetos de JavaScript y viceversa.
 
     (Espacio para un ejemplo de código conceptual de un modelo, como `models/catModel.js`, mostrando la estructura básica de interacción con el pool de conexiones para realizar consultas y manejar posibles errores de bajo nivel).
+
+    ---
+
+    ##### Captura de Pantalla: Estructura de la carpeta `models/`
+
+    [Espacio para una captura de pantalla del explorador de archivos mostrando los modelos definidos dentro de la carpeta `models/`.]
+
+    ---
 
 * **`controllers/`**: Aquí residirá la **lógica de negocio** principal de la aplicación. Los controladores actuarán como intermediarios, recibiendo las peticiones del enrutador, interactuando con los modelos para obtener o modificar datos, y aplicando las reglas de validación necesarias. Son también los encargados de manejar las excepciones que puedan surgir de las operaciones con la base de datos, utilizando bloques `try/catch` para una gestión robusta de errores. Finalmente, prepararán la respuesta adecuada para ser enviada al cliente, ya sea en formato JSON para la API o mediante el renderizado de **vistas EJS** para la interfaz de usuario.
 
     (Espacio para un ejemplo de código conceptual de un controlador, como `controllers/catController.js`, ilustrando cómo maneja una petición HTTP, interactúa con el modelo y decide si renderizar una vista EJS o redirigir al usuario, incluyendo la gestión de errores).
 
+    ---
+
+    ##### Captura de Pantalla: Estructura de la carpeta `controllers/`
+
+    [Espacio para una captura de pantalla del explorador de archivos mostrando los controladores definidos dentro de la carpeta `controllers/`.]
+
+    ---
+
 * **`routes/`**: Esta carpeta es el corazón del **Enrutador de los Mil Caminos**. Cada archivo dentro de `routes/` (por ejemplo, `routes/gatitos.js`, `routes/clanes.js`) definirá un **`express.Router()`** independiente. Esto permite organizar las rutas de manera modular, agrupándolas por entidad o funcionalidad. Estos archivos son los encargados de mapear las URL de las peticiones HTTP a las funciones controladoras correspondientes.
 
     (Espacio para un ejemplo de código conceptual de una ruta, como `routes/gatitos.js`, mostrando cómo definir las rutas HTTP (GET, POST, PUT, DELETE) para una entidad y cómo conectarlas con los métodos correspondientes del controlador, incluyendo el uso de `method-override` si aplica).
 
+    ---
+
+    ##### Captura de Pantalla: Estructura de la carpeta `routes/`
+
+    [Espacio para una captura de pantalla del explorador de archivos mostrando los archivos de rutas definidos dentro de la carpeta `routes/`.]
+
+    ---
+
 * **`middleware/`**: Aquí se ubicarán las funciones de `middleware` que actúan como capas intermedias de procesamiento de las peticiones. Esto incluye funcionalidades transversales como la **autenticación** (verificación de credenciales), **autorización** (control de permisos), **validación de datos genérica** (antes de que lleguen al controlador) o el **manejo de errores global** de la aplicación, interceptando y procesando errores a nivel central.
 
----
+    ---
+
+    ##### Captura de Pantalla: Estructura de la carpeta `middleware/`
+
+    [Espacio para una captura de pantalla del explorador de archivos mostrando los archivos de middleware definidos dentro de la carpeta `middleware/`.]
+
+    ---
 
 #### 3. Enrutamiento (Express) y API RESTful
 
@@ -94,28 +137,43 @@ El Laberinto de Enrutamiento será domado con un sistema de rutas Express **clar
 
 ---
 
+##### Captura de Pantalla: Pruebas de Endpoints RESTful (e.g., con Postman/Insomnia)
+
+[Espacio para una captura de pantalla que demuestre el funcionamiento de los endpoints RESTful, por ejemplo, usando una herramienta como Postman o Insomnia para enviar peticiones GET/POST/PUT/DELETE y mostrar las respuestas.]
+
+---
+
 #### 4. Requisitos de EJS y Parciales (Frontend)
 
 La capa de presentación, esencial para que el Backend Sagrado brille, será cuidadosamente orquestada por **Sparkle Templatetail** y **Luna Styleshade** utilizando **EJS (Embedded JavaScript)** como motor de plantillas. Esto garantizará la creación de **vistas coherentes y altamente reutilizables**.
 
 * **Estructura de Vistas:** La carpeta `/views` estará meticulosamente organizada con un sistema de **`layouts`** y **`partials`**. Esta estructura es fundamental para eliminar la duplicación de código HTML, permitiendo que elementos comunes de la interfaz (como la cabecera, navegación o pie de página) se definan una sola vez y se reutilicen en múltiples páginas.
+
+    ---
+
+    ##### Captura de Pantalla: Estructura de la carpeta `views/`
+
+    [Espacio para una captura de pantalla del explorador de archivos mostrando la organización de las carpetas `views/`, `views/partials/` y las vistas principales.]
+
+    ---
+
 * **Parciales Reutilizables:** Todo el contenido HTML común a varias páginas (ej. la cabecera del sitio, la barra de navegación principal, el pie de página o los mensajes flash de éxito/error) residirá en archivos separados dentro de la carpeta `/views/partials/`. Estos parciales se incluirán dinámicamente en las plantillas principales utilizando la sintaxis EJS `<%- include('partials/nombre-del-parcial') %>`. Se demostrará la reutilización de **al menos dos parciales** diferentes en varias vistas de la aplicación, un ejemplo claro de eficiencia en el desarrollo frontend.
 
-    (Espacio para un ejemplo de código EJS mostrando cómo se define un parcial (e.g., `views/partials/header.ejs`) y cómo se incluye en una vista principal (e.g., `views/cats/list.ejs`), ilustrando la reutilización).
+    (Espacio para un ejemplo de código EJS mostrando cómo se define un parcial -e.g., `views/partials/header.ejs`- y cómo se incluye en una vista principal -e.g., `views/cats/list.ejs`-, ilustrando la reutilización).
 
-* **Componentes Visuales:** Se orquestarán componentes visuales reutilizables clave para la interfaz de usuario. Esto incluye el diseño e implementación de **tarjetas de gatos** (para mostrar la información de cada felino), **tablas de clanes** (para listar y gestionar los clanes del reino) y **formularios de pergaminos** (para crear y editar el conocimiento ancestral). EJS facilitará la creación de estos componentes al permitir pasar datos dinámicamente a las plantillas y parciales, construyendo interfaces interactivas.
+* **Componentes Visuales:** Se orquestarán componentes visuales reutilizables clave para la interfaz de usuario. Esto incluye el diseño e implementación de **tarjetas de gatos** (para mostrar la información de cada felino), **tablas de clanes** (para listar y gestionar los clanes del reino) y **formato de pergaminos** (para crear y editar el conocimiento ancestral). EJS facilitará la creación de estos componentes al permitir pasar datos dinámicamente a las plantillas y parciales, construyendo interfaces interactivas.
 
     ---
 
     ##### Captura de Pantalla: Vista de Lista de Gatitos (ejemplo)
 
-    [Espacio para una captura de pantalla representativa de la vista que lista todos los gatitos (`/gatitos`), mostrando el diseño y los componentes visuales.]
+    [Espacio para una captura de pantalla representativa de la vista que lista todos los gatitos (`/gatitos`), mostrando el diseño y los componentes visuales en acción.]
 
     ---
 
     ##### Captura de Pantalla: Vista de Formulario de Creación/Edición (ejemplo)
 
-    [Espacio para una captura de pantalla del formulario utilizado tanto para la creación como para la edición de gatitos (`/gatitos/nuevo` o `/gatitos/:id/editar`), destacando la reutilización de la plantilla.]
+    [Espacio para una captura de pantalla del formulario utilizado tanto para la creación como para la edición de gatitos (`/gatitos/nuevo` o `/gatitos/:id/editar`), destacando la reutilización de la plantilla y el diseño de los campos.]
 
     ---
 
@@ -124,44 +182,63 @@ La capa de presentación, esencial para que el Backend Sagrado brille, será cui
 Para poner en marcha el proyecto NULLCATIA en tu entorno local, sigue cuidadosamente estos pasos esenciales:
 
 1.  **Clonar el Repositorio del Proyecto:**
-    Primero, asegúrate de tener una copia local del código fuente del proyecto. Si aún no lo has hecho, clona el repositorio desde su ubicación de control de versiones (por ejemplo, GitHub, GitLab, Bitbucket) a tu máquina.
+    Primero, asegúrate de tener una copia local del código fuente del proyecto. Si aún no lo has hecho, clona el repositorio desde su ubicación de control de versiones (por ejemplo, GitHub, GitLab, Bitbucket) a tu máquina. Luego, navega al directorio raíz del proyecto.
 
     ```bash
-    (Espacio para el comando de Git para clonar el repositorio, e.g., git clone [URL_DEL_REPOSITORIO])
-    (Espacio para el comando de navegación al directorio del proyecto, e.g., cd nombre-del-proyecto)
+    git clone [URL_DEL_REPOSITORIO]
+    cd nombre-del-proyecto
     ```
 
 2.  **Instalar Dependencias de Node.js:**
     Una vez que te encuentres en el directorio raíz del proyecto, procede a instalar todas las dependencias de Node.js necesarias. Estas dependencias están listadas en el archivo `package.json` del proyecto e incluyen librerías como Express.js (para el servidor web), mysql2 (para la conexión a la base de datos), EJS (para las plantillas de vistas) y `method-override` (si se usa).
 
     ```bash
-    (Espacio para el comando de instalación de npm, e.g., npm install)
+    npm install
     ```
+
+    ---
+
+    ##### Captura de Pantalla: Ejecución de `npm install`
+
+    [Espacio para una captura de pantalla de la terminal mostrando el resultado de la ejecución exitosa de `npm install`.]
+
+    ---
 
 3.  **Configurar y Preparar la Base de Datos MySQL:**
     Este es un paso crítico. La aplicación requiere una instancia de MySQL en funcionamiento y la creación de la base de datos `NULLCATIA` con su esquema definido.
 
     * Asegúrate de que tu servidor MySQL esté activo y accesible.
     * Ejecuta el script `database/schema.sql` directamente en tu servidor MySQL. Esto creará la base de datos `NULLCATIA` si no existe y luego todas las tablas (`clan`, `territory`, `cat`, `parchment`, `cat_parchment`) con sus respectivas columnas, claves y restricciones. Puedes usar la línea de comandos de MySQL (`mysql -u tu_usuario -p < database/schema.sql`) o una herramienta gráfica como MySQL Workbench, DBeaver, o phpMyAdmin para importar el script.
+
+        ---
+
+        ##### Captura de Pantalla: Base de Datos MySQL Creada
+
+        [Espacio para una captura de pantalla de tu herramienta MySQL (ej. MySQL Workbench, DBeaver) mostrando que la base de datos `NULLCATIA` y sus tablas han sido creadas correctamente.]
+
+        ---
+
     * Configura las credenciales de conexión a tu base de datos (nombre de usuario, contraseña, host, puerto) en el archivo de configuración correspondiente del proyecto. Este archivo suele encontrarse en `config/db.js` o ser gestionado a través de variables de entorno en un archivo `.env`.
 
 4.  **Iniciar la Aplicación en Modo Desarrollo:**
     Con todas las dependencias instaladas y la base de datos correctamente configurada, puedes iniciar el servidor de la aplicación en modo desarrollo. Este modo es ideal para el desarrollo, ya que a menudo incluye características como el reinicio automático del servidor al detectar cambios en el código (hot-reloading) y mensajes de depuración detallados.
 
     ```bash
-    (Espacio para el comando de ejecución en modo desarrollo, e.g., npm run dev)
+    npm run dev
     ```
 
     Una vez que el servidor se haya iniciado correctamente, la aplicación estará accesible a través de tu navegador web. Generalmente, podrás acceder a ella en la dirección `http://localhost:3000` (o el puerto específico que se haya configurado para el servidor Express).
 
----
+    ---
+
+    ##### Captura de Pantalla: Servidor Node.js en Ejecución
+
+    [Espacio para una captura de pantalla de la terminal mostrando el mensaje de que el servidor Node.js está corriendo y escuchando en el puerto configurado.]
+
+    ---
 
 ### Conclusión
 
 La implementación exitosa de este proyecto es crucial para la **Transformación Felina 4.0** en NULLCATIA. Al modelar una base de datos relacional robusta y bien normalizada, construir un Backend Sagrado con microservicios Express y una API RESTful eficiente, y diseñar una interfaz de usuario cohesiva y reutilizable con EJS, estaremos sentando las bases para un reino digital donde cada gatito nulo pueda encontrar su propósito sin perderse en el Laberinto de Enrutamiento. La sinergia y colaboración entre los héroes del backend (Felix Socketpaw, Serafina Cachewhisker, Captain Middleware) y los héroes del frontend (Sparkle Templatetail, Luna Styleshade, Pixel Purrfect, Ajax Whisperpaw), garantizarán que las peticiones viajen sin extraviarse y que la experiencia felina sea impecable y gratificante.
 
 Este proyecto no solo representa un desafío técnico significativo, sino que también nos invita a construir un sistema resiliente, escalable y bien estructurado que mantenga la armonía, la eficiencia y la vida digital en NULLCATIA.
-
----
-
-¿Hay algún otro detalle que te gustaría añadir o ajustar para esta documentación?
