@@ -1,0 +1,17 @@
+:root {
+    /* Colores primarios y secundarios de NULLCATIA */
+    --color-primary: #4A90E2;    /* Un azul brillante para elementos clave */
+    --color-secondary: #50E3C2;  /* Un verde azulado para acentos y éxito */
+
+    /* Colores neutros y de texto */
+    --color-text-dark: #333333;  /* Texto principal oscuro */
+    --color-text-light: #F8F8F8; /* Texto claro sobre fondos oscuros */
+    --color-background-light: #F0F2F5; /* Fondo claro general */
+    --color-background-dark: #2C3E50; /* Fondo oscuro (ej. para footer/navbar) */
+    --color-border: #D1D5DA;     /* Bordes sutiles */
+
+    /* Colores de estado */
+    --color-success: #28A745;    /* Mensajes de éxito */
+    --color-error: #DC3545;      /* Mensajes de error/peligro */
+    --color-warning: #FFC107;    /* Advertencias */
+}
