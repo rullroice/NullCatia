@@ -21,15 +21,15 @@ app.get('/', (req, res) => {
 });
 
 // Rutas de las entidades
-const catRoutes = require('./src/routes/catRoutes'); // nombre plural para seguir el patrón
-const clanRoutes = require('./src/routes/clanRoutes');
-const territoryRoutes = require('./src/routes/territoryRoutes');
-const scrollRoutes = require('./src/routes/scrollRoutes');
+const catRoute = require('./src/routes/catRoute'); // nombre plural para seguir el patrón
+const clanRoute = require('./src/routes/clanRoute');
+const territoryRoute = require('./src/routes/territoryRoute');
+const scrollRoute = require('./src/routes/scrollRoute');
 
-app.use('/gatitos', catRoutes);
-app.use('/clanes', clanRoutes);
-app.use('/territorios', territoryRoutes);
-app.use('/scrolls', scrollRoutes);
+app.use('/gatitos', catRoute);
+app.use('/clanes', clanRoute);
+app.use('/territorios', territoryRoute);
+app.use('/scrolls', scrollRoute);
 
 // Middleware para rutas no encontradas (404)
 app.use((req, res, next) => {
