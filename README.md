@@ -1,5 +1,5 @@
 ## Evaluación – Proyecto NULLCATIA: Un Viaje a la Modernización Felina
-Nombres: Vicente Lizana, Jhon (apellido no me lo se), Raul Ibarra, Jorge Moncada (creo)
+Nombres: Vicente Lizana, Jhon (Apellido), Raul Ibarra, Jorge Moncada
 
 ### Introducción
 
@@ -11,9 +11,23 @@ Con la inminente **Transformación Felina 4.0**, el venerable Consejo de NULLCAT
 * **Los Controladores del Equilibrio:** Estos monjes, guardianes de la lógica y la integridad, se encargan de validar meticulosamente cada petición entrante. Con la fuerza del `async/await`, repelen cualquier intento de dependencias circulares, asegurando un flujo de datos lineal y predecible.
 * **El Enrutador de los Mil Caminos:** Un laberinto cuidadosamente ordenado en capas, donde cada **endpoint RESTful** actúa como una revelación, desvelando un fragmento crucial de la vasta memoria gatuna y guiando las peticiones a su destino.
 
-El desafío más formidable se alza en el corazón del reino: **El Laberinto de Enrutamiento**. Este entramado infinito de caminos REST amenaza con desviar y perder cada petición en bucles sin fin. Solo un mapa claro de rutas y una estructura de capas bien definida podrán dominarlo. Tu misión principal, como novicio del Consejo, es implementar los ritos backend necesarios para contener esta amenaza: diseñar **modelos de datos normalizados**, silenciar excepciones con un riguroso **manejo de errores `try/catch`** y erigir **baluartes de autenticación con `middleware`**. El éxito en estas tareas es fundamental para que el Reino de NULLCATIA conserve sus vidas y prospere.
+El desafío más formidable se alza en el corazón del reino: **El Laberinto de Enrutamiento**. Este entramado infinito de caminos REST amenaza con desviar y perder cada petición en bucles sin fin. Solo un mapa claro de rutas y una estructura de capas bien definida podrán dominarlo.
 
-Además, el Backend Sagrado solo alcanzará su máximo esplendor si es reflejado por una **capa de presentación (Frontend)** pulcra y accesible. Para ello, el Consejo ha convocado a dos héroes adicionales: **Sparkle Templatetail**, la arquitecta de vistas, y **Luna Styleshade**, la maestra de estilos, quienes trabajarán en conjunto con los héroes del backend para iluminar los caminos trazados con vistas coherentes y estilos unificados, asegurando que las peticiones de los usuarios viajen sin extraviarse en el Laberinto.
+**Felix Socketpaw**, **Serafina Cachewhisker**, y **Captain Middleware** son los héroes del backend que deberán diseñar rutas declarativas, controladores desacoplados y un sistema central de manejo de errores para superar el Laberinto de Enrutamiento y asegurar que cada petición llegue sana y salva a su destino.
+
+Así, tu misión—como novicio del Consejo—es implementar los ritos backend que mantengan a raya al enemigo: diseñar **modelos normalizados**, silenciar excepciones con **manejo de errores `try/catch`**, y levantar **baluartes de autenticación `middleware`**. Solo entonces el Reino de NULLCATIA conservará sus vidas.
+
+### Arte de las Interfaces (Frontend)
+
+El Backend Sagrado solo brilla cuando es reflejado por una capa de presentación pulcra y accesible. Para ello, el Consejo invoca a dos héroes adicionales que gobiernan el reino visual: **Sparkle Templatetail**, la arquitecta de vistas, y **Luna Styleshade**, la maestra de estilos.
+
+Estos héroes del frontend, junto con **Pixel Purrfect** (Diseñador UI) y **Ajax Whisperpaw** (Mensajero Asíncrono), tienen una misión conjunta para el frontend:
+
+* **Estructurar la carpeta `/views`** con un sistema de `layouts` y `partials` que derrote la duplicación.
+* **Orquestar componentes visuales reutilizables:** tarjetas de gatos, tablas de clanes y formularios de pergaminos.
+* **Domar El Laberinto de Enrutamiento desde la perspectiva del cliente**, enlazando cada acción del usuario con la ruta server-side correspondiente sin crear callejones rotos.
+
+Felix, Serafina, Captain Middleware, Sparkle y Luna trabajarán en conjunto: mientras el backend traza los caminos, el frontend los ilumina con vistas coherentes y estilos unificados. Solo así las peticiones viajarán sin extraviarse en el Laberinto.
 
 ---
 
@@ -21,9 +35,9 @@ Además, el Backend Sagrado solo alcanzará su máximo esplendor si es reflejado
 
 #### 1. Diseño y Modelado de la Base de Datos Relacional (MySQL)
 
-La base de datos MySQL es la columna vertebral del Backend Sagrado, almacenando la esencia del reino de NULLCATIA. Su diseño se ha concebido siguiendo estrictos principios de **normalización** para asegurar la **integridad de los datos**, **minimizar la redundancia** y **optimizar el rendimiento** de las consultas. La estructura de tablas definida para este proyecto incluye: `clan`, `territory`, `cat`, `parchment` y la tabla de unión `cat_parchment`, que gestiona la relación muchos a muchos entre gatitos y pergaminos.
+La base de datos MySQL es la columna vertebral del Backend Sagrado, almacenando la esencia del reino de NULLCATIA. Su diseño se ha concebido siguiendo estrictos principios de **normalización** para asegurar la **integridad de los datos**, **minimizar la redundancia** y **optimizar el rendimiento** de las consultas. La estructura de tablas definida para este proyecto incluirá: `clan`, `territory`, `cat`, `parchment` y la tabla de unión `cat_parchment`, que gestiona la relación muchos a muchos entre gatitos y pergaminos.
 
-El archivo `database/schema.sql` es el script fundamental que contiene la definición completa de todas estas tablas. Incluye las **claves primarias auto-incrementales** para la identificación única de cada registro, las **claves foráneas** que establecen las relaciones lógicas entre las tablas (por ejemplo, un gatito pertenece a un clan, un territorio pertenece a un clan, etc.), y los **índices** necesarios sobre columnas que serán frecuentemente utilizadas en búsquedas y uniones para acelerar las operaciones.
+El archivo `database/schema.sql` es el script fundamental que contendrá la definición completa de todas estas tablas. Incluirá las **claves primarias auto-incrementales** para la identificación única de cada registro, las **claves foráneas** que establecerán las relaciones lógicas entre las tablas (por ejemplo, un gatito pertenece a un clan, un territorio pertenece a un clan, etc.), y los **índices** necesarios sobre columnas que serán frecuentemente utilizadas en búsquedas y uniones para acelerar las operaciones.
 
 (Espacio para el código SQL completo de `database/schema.sql` para la creación de la base de datos y todas las tablas, incluyendo llaves primarias, foráneas y restricciones como `ON DELETE RESTRICT`, `ON DELETE SET NULL` y `ON UPDATE CASCADE`).
 
@@ -38,8 +52,8 @@ El archivo `database/schema.sql` es el script fundamental que contiene la defini
 Este diseño de base de datos no solo organiza la información de manera lógica, sino que también garantiza la **integridad referencial** mediante políticas de eliminación y actualización:
 
 * Las restricciones `ON DELETE RESTRICT` en las tablas `territory` y `cat` aseguran que no se pueda eliminar un Clan si aún tiene territorios o gatitos asociados, salvaguardando así la "integridad gatuna" del reino.
-* Para la tabla `parchment`, se utiliza `ON DELETE SET NULL` en la clave foránea `clan_id`. Esto significa que si un clan es eliminado, los pergaminos que estaban asociados a él no se borrarán, sino que simplemente dejarán de estar vinculados a un clan específico, permitiendo que "floten libremente" en el reino.
-* En la tabla de unión `cat_parchment`, se implementa `ON DELETE CASCADE` para las claves foráneas `cat_id` y `parchment_id`. Esto asegura que si un gatito o un pergamino son eliminados, todos los registros de consulta asociados en `cat_parchment` también se eliminarán automáticamente, manteniendo la coherencia de los datos históricos.
+* Para la tabla `parchment`, se utilizará `ON DELETE SET NULL` en la clave foránea `clan_id`. Esto significa que si un clan es eliminado, los pergaminos que estaban asociados a él no se borrarán, sino que simplemente dejarán de estar vinculados a un clan específico, permitiendo que "floten libremente" en el reino.
+* En la tabla de unión `cat_parchment`, se implementará `ON DELETE CASCADE` para las claves foráneas `cat_id` y `parchment_id`. Esto asegura que si un gatito o un pergamino son eliminados, todos los registros de consulta asociados en `cat_parchment` también se eliminarán automáticamente, manteniendo la coherencia de los datos históricos.
 
 ---
 
@@ -78,9 +92,7 @@ graph TD
 
     ---
 
-* **`models/`**: Cada archivo dentro de esta carpeta representará un **modelo de datos**, correspondiendo generalmente a una tabla de la base de datos (por ejemplo, `catModel.js`, `clanModel.js`). Los modelos son responsables de encapsular la lógica de acceso a datos, interactuando directamente con la base de datos. Utilizarán la librería `mysql2` junto con las capacidades de `async/await` o promesas para realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) de manera asíncrona y eficiente. También manejarán las transformaciones necesarias de los datos de la base de datos a objetos de JavaScript y viceversa.
-
-    (Espacio para un ejemplo de código conceptual de un modelo, como `models/catModel.js`, mostrando la estructura básica de interacción con el pool de conexiones para realizar consultas y manejar posibles errores de bajo nivel).
+* **`models/`**: Esta carpeta contiene los **Modelos de Datos**, que representan las tablas de la base de datos. Cada archivo en esta carpeta ( `catModel.js`, `clanModel.js`, `scrollModel.js`, y `territoryModel.js`) define la estructura y la lógica para interactuar con una tabla específica. Estos modelos encapsulan las operaciones CRUD (Crear, Leer, Actualizar, Eliminar) y proporcionan una interfaz consistente para acceder y manipular los datos.
 
     ---
 
@@ -90,9 +102,7 @@ graph TD
 
     ---
 
-* **`controllers/`**: Aquí residirá la **lógica de negocio** principal de la aplicación. Los controladores actuarán como intermediarios, recibiendo las peticiones del enrutador, interactuando con los modelos para obtener o modificar datos, y aplicando las reglas de validación necesarias. Son también los encargados de manejar las excepciones que puedan surgir de las operaciones con la base de datos, utilizando bloques `try/catch` para una gestión robusta de errores. Finalmente, prepararán la respuesta adecuada para ser enviada al cliente, ya sea en formato JSON para la API o mediante el renderizado de **vistas EJS** para la interfaz de usuario.
-
-    (Espacio para un ejemplo de código conceptual de un controlador, como `controllers/catController.js`, ilustrando cómo maneja una petición HTTP, interactúa con el modelo y decide si renderizar una vista EJS o redirigir al usuario, incluyendo la gestión de errores).
+* **`controllers/`**: Aquí reside la **lógica de negocio** principal de la aplicación. Los **Controladores** ( `catController.js`, `clanController.js`, `scrollController.js`, y `territoryController.js`) reciben las peticiones del enrutador, interactúan con los modelos para obtener o modificar datos, y aplican las reglas de validación necesarias. También gestionan las excepciones que puedan surgir de las operaciones con la base de datos, utilizando bloques `try/catch` para una gestión robusta de errores. Finalmente, preparan la respuesta adecuada para ser enviada al cliente, ya sea en formato JSON para la API o mediante el renderizado de **vistas EJS** para la interfaz de usuario.
 
     ---
 
@@ -102,9 +112,7 @@ graph TD
 
     ---
 
-* **`routes/`**: Esta carpeta es el corazón del **Enrutador de los Mil Caminos**. Cada archivo dentro de `routes/` (por ejemplo, `routes/gatitos.js`, `routes/clanes.js`) definirá un **`express.Router()`** independiente. Esto permite organizar las rutas de manera modular, agrupándolas por entidad o funcionalidad. Estos archivos son los encargados de mapear las URL de las peticiones HTTP a las funciones controladoras correspondientes.
-
-    (Espacio para un ejemplo de código conceptual de una ruta, como `routes/gatitos.js`, mostrando cómo definir las rutas HTTP (GET, POST, PUT, DELETE) para una entidad y cómo conectarlas con los métodos correspondientes del controlador, incluyendo el uso de `method-override` si aplica).
+* **`routes/`**: Esta carpeta es el corazón del **Enrutador de los Mil Caminos**. Cada archivo dentro de `routes/` ( `catRoute.js`, `clanRoute.js`, `scrollRoute.js`, y `territoryRoute.js`) define un **`express.Router()`** independiente. Esto permite organizar las rutas de manera modular, agrupándolas por entidad o funcionalidad. Estos archivos son los encargados de mapear las URL de las peticiones HTTP a las funciones controladoras correspondientes.
 
     ---
 
@@ -114,13 +122,23 @@ graph TD
 
     ---
 
-* **`middleware/`**: Aquí se ubicarán las funciones de `middleware` que actúan como capas intermedias de procesamiento de las peticiones. Esto incluye funcionalidades transversales como la **autenticación** (verificación de credenciales), **autorización** (control de permisos), **validación de datos genérica** (antes de que lleguen al controlador) o el **manejo de errores global** de la aplicación, interceptando y procesando errores a nivel central.
+* **`middleware/`**: Aquí se ubican las funciones de **Middleware** que actúan como capas intermedias de procesamiento de las peticiones. Esto incluye funcionalidades transversales como la **autenticación** ( `authMiddleware.js`) y el **manejo de errores global** ( `errorMiddleware.js`). El middleware de autenticación verifica las credenciales y controla el acceso a las rutas, mientras que el middleware de errores centraliza el manejo de excepciones, proporcionando respuestas consistentes y evitando que el servidor se caiga.
 
     ---
 
     ##### Captura de Pantalla: Estructura de la carpeta `middleware/`
 
     [Espacio para una captura de pantalla del explorador de archivos mostrando los archivos de middleware definidos dentro de la carpeta `middleware/`.]
+
+    ---
+
+* **`views/`**: Esta carpeta contiene las **Vistas** de la aplicación, construidas con EJS. El archivo `index.ejs` es la vista principal. La subcarpeta `views/partials/` contiene fragmentos de HTML reutilizables ( `footer.ejs`, `header.ejs`, y `navbar.ejs`) que se incluyen en las vistas para evitar la duplicación de código y mantener una interfaz consistente.
+
+    ---
+
+    ##### Captura de Pantalla: Estructura de la carpeta `views/` y `views/partials/`
+
+    [Espacio para una captura de pantalla del explorador de archivos mostrando la estructura de las carpetas `views/` y `views/partials/`.]
 
     ---
 
@@ -161,7 +179,7 @@ La capa de presentación, esencial para que el Backend Sagrado brille, será cui
 
     (Espacio para un ejemplo de código EJS mostrando cómo se define un parcial -e.g., `views/partials/header.ejs`- y cómo se incluye en una vista principal -e.g., `views/cats/list.ejs`-, ilustrando la reutilización).
 
-* **Componentes Visuales:** Se orquestarán componentes visuales reutilizables clave para la interfaz de usuario. Esto incluye el diseño e implementación de **tarjetas de gatos** (para mostrar la información de cada felino), **tablas de clanes** (para listar y gestionar los clanes del reino) y **formato de pergaminos** (para crear y editar el conocimiento ancestral). EJS facilitará la creación de estos componentes al permitir pasar datos dinámicamente a las plantillas y parciales, construyendo interfaces interactivas.
+* **Componentes Visuales:** Se orquestarán componentes visuales reutilizables clave para la interfaz de usuario. Esto incluirá el diseño e implementación de **tarjetas de gatos** (para mostrar la información de cada felino), **tablas de clanes** (para listar y gestionar los clanes del reino) y **formularios de pergaminos** (para crear y editar el conocimiento ancestral). EJS facilitará la creación de estos componentes al permitir pasar datos dinámicamente a las plantillas y parciales, construyendo interfaces interactivas.
 
     ---
 
@@ -176,6 +194,66 @@ La capa de presentación, esencial para que el Backend Sagrado brille, será cui
     [Espacio para una captura de pantalla del formulario utilizado tanto para la creación como para la edición de gatitos (`/gatitos/nuevo` o `/gatitos/:id/editar`), destacando la reutilización de la plantilla y el diseño de los campos.]
 
     ---
+
+### Pistas y Buenas Prácticas Clave para tu Proyecto NULLCATIA
+
+Para asegurar la robustez, seguridad y mantenibilidad de tu Backend Sagrado en el reino de NULLCATIA, considera aplicar estas pistas y buenas prácticas esenciales. Te ayudarán a dominar el Laberinto de Enrutamiento y a construir un sistema ejemplar.
+
+---
+
+#### 1. Gestión Segura de Credenciales con `.env`
+
+**Pista y Buena Práctica:** Tus credenciales de acceso a la base de datos (y cualquier otra información sensible como claves secretas o tokens de API) **nunca deben subirse directamente al control de versiones (Git)**. Esto es una vulnerabilidad de seguridad crítica.
+
+**Cómo aplicarlo:**
+
+* **Usa un archivo `.env`:** Almacena todas tus variables de entorno sensibles en un archivo llamado `.env` en la raíz de tu proyecto. Este archivo debe ser **ignorado por Git** (añádelo a tu `.gitignore`).
+* **Provee un `.env.example`:** Crea un archivo `.env.example` que contenga la estructura de tu `.env` pero con valores vacíos o de ejemplo. Esto permitirá a otros desarrolladores (o a ti mismo en otro entorno) saber qué variables de entorno necesita la aplicación para funcionar, sin exponer tus credenciales reales.
+
+    ```bash
+    # Contenido de tu .gitignore
+    .env
+
+    # Contenido de tu .env.example
+    DB_HOST=localhost
+    DB_USER=root
+    DB_PASSWORD=
+    DB_NAME=NULLCATIA
+    PORT=3000
+
+    # Contenido de tu .env (¡NO LO SUBAS A GIT!)
+    DB_HOST=your_db_host
+    DB_USER=your_db_user
+    DB_PASSWORD=your_secure_password
+    DB_NAME=NULLCATIA
+    PORT=3000
+    ```
+* **Acceso en tu código:** Utiliza librerías como `dotenv` en Node.js para cargar estas variables de entorno en `process.env`.
+
+---
+
+#### 2. Manejo Centralizado de Errores con Middleware
+
+**Pista y Buena Práctica:** Las excepciones no deben quedar sin domar en NULLCATIA. Manejar errores con bloques `try/catch` es fundamental en controladores y modelos, pero es aún más efectivo establecer un **middleware de error global** en Express. Esto centraliza la forma en que tu aplicación responde a los errores no capturados explícitamente, evitando que el servidor se caiga y proporcionando mensajes consistentes al cliente.
+
+(Espacio para un ejemplo de código del middleware de error global, mostrando cómo capturar errores y enviar respuestas consistentes, tanto para HTML como para JSON en APIs).
+
+* Cuando un error ocurra en alguna ruta o middleware anterior, puedes pasarlo a este manejador global llamando a `next(error)`.
+
+---
+
+#### 3. Validación de Inputs Felinos con Express-Validator
+
+**Pista y Buena Práctica:** Los "gatitos nulos" necesitan ser inicializados con valores válidos. La **validación de entrada** es crucial para proteger tu backend de datos maliciosos o incorrectos, asegurando la integridad de la información que llega a tus modelos y a la base de datos. `express-validator` es una potente librería que se integra perfectamente con Express para este fin.
+
+(Espacio para un ejemplo de código que demuestre la implementación de `express-validator` en un controlador, incluyendo la definición de reglas y el manejo de los errores de validación, posiblemente reenviando los errores a la vista del formulario).
+
+* Luego, en tu archivo de rutas, encadena la validación antes de la función del controlador:
+    (Espacio para un ejemplo de código de la configuración de rutas, mostrando cómo aplicar las reglas de validación antes de la función del controlador para una ruta específica).
+
+Aplicar estas prácticas no solo te ayudará a superar los desafíos del Laberinto de Enrutamiento, sino que también elevará la calidad y la madurez de tu proyecto Backend Sagrado en NULLCATIA.
+
+---
 
 ### Manual de Instalación y Ejecución
 
