@@ -1,0 +1,61 @@
+<%- include('../partials/header', { title: title }) %>
+<%- include('../partials/navbar') %>
+
+<div class="container mt-4">
+    <h1 class="mb-4">Territorios del Reino</h1>
+
+    <div class="d-flex justify-content-end mb-3">
+        <a href="/territorios/nuevo" class="btn btn-primary">
+            <i class="fas fa-plus me-2"></i> Añadir Nuevo Territorio
+        </a>
+    </div>
+
+    <% if (territories && territories.length > 0) { %>
+        <div class="table-responsive">
+            <table class="table table-hover table-striped">
+                <thead class="table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre del Territorio</th>
+                        <th>Descripción</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% territories.forEach(territory => { %>
+                        <tr>
+                            <td><%= territory.id %></td>
+                            <td><%= territory.name %></td>
+                            <td>
+                                <% if (territory.description) { %>
+                                    <%= territory.description.substring(0, 70) %><% if (territory.description.length > 70) { %>...<% } %>
+                                <% } else { %>
+                                    (Sin descripción)
+                                <% } %>
+                            </td>
+                            <td>
+                                <div class="d-flex gap-2">
+                                    <a href="/territorios/<%= territory.id %>/editar" class="btn btn-secondary btn-sm">Editar</a>
+                                    
+                                    <form action="/territorios/<%= territory.id %>/eliminar?_method=DELETE" method="POST" class="d-inline">
+                                        <%
+                                            const escapedName = territory.name ? territory.name.replace(/'/g, "\\'").replace(/"/g, '\\"') : 'este territorio';
+                                        %>
+                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de que quieres eliminar el territorio &quot;<%= escapedName %>&quot;? Esta acción no se puede deshacer y puede afectar a los gatitos asociados.')">Eliminar</button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </div>
+    <% } else { %>
+        <div class="alert alert-info text-center" role="alert">
+            No hay territorios registrados en el reino aún. ¡Es hora de delimitar nuestras tierras!
+            <a href="/territorios/nuevo" class="alert-link">Añadir el primer territorio.</a>
+        </div>
+    <% } %>
+</div>
+
+<%- include('../partials/footer') %>

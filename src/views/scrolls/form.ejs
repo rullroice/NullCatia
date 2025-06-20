@@ -1,0 +1,31 @@
+<%- include('../partials/header', { title: title }) %>
+<%- include('../partials/navbar') %>
+
+<div class="container mt-4">
+    <h1 class="mb-4"><%= typeof scroll !== 'undefined' && scroll.id ? 'Editar Pergamino' : 'Nuevo Pergamino' %></h1>
+
+    <form action="<%= typeof scroll !== 'undefined' && scroll.id ? '/scrolls/' + scroll.id + '/editar?_method=PUT' : '/scrolls' %>" method="POST">
+        <div class="mb-3">
+            <label for="title" class="form-label">Título del Pergamino:</label>
+            <input type="text" class="form-control" id="title" name="title" value="<%= typeof scroll !== 'undefined' && scroll.title ? scroll.title : '' %>" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="content" class="form-label">Contenido:</label>
+            <textarea class="form-control" id="content" name="content" rows="5" required><%= typeof scroll !== 'undefined' && scroll.content ? scroll.content : '' %></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label for="cat_id" class="form-label">ID del Gato Asociado (Opcional):</label>
+            <input type="number" class="form-control" id="cat_id" name="cat_id" value="<%= typeof scroll !== 'undefined' && scroll.cat_id ? scroll.cat_id : '' %>" placeholder="Introduce el ID de un gato existente">
+            <small class="form-text text-muted">Asegúrate de que este ID de gato exista en la base de datos `cats`.</small>
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+            <%= typeof scroll !== 'undefined' && scroll.id ? 'Actualizar Pergamino' : 'Crear Pergamino' %>
+        </button>
+        <a href="/scrolls" class="btn btn-secondary ms-2">Cancelar</a>
+    </form>
+</div>
+
+<%- include('../partials/footer') %>

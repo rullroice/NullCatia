@@ -1,0 +1,70 @@
+<%- include('../partials/header', { title: title }) %>
+<%- include('../partials/navbar') %>
+
+<div class="container mt-4">
+    <h1 class="mb-4">Todos los Gatitos del Reino</h1>
+
+    <div class="d-flex justify-content-end mb-3">
+        <a href="/gatitos/nuevo" class="btn btn-primary">
+            <i class="fas fa-plus me-2"></i> Añadir Nuevo Gatito
+        </a>
+    </div>
+
+    <% if (cats && cats.length > 0) { %>
+        <div class="table-responsive">
+            <table class="table table-hover table-striped">
+                <thead class="table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Edad</th>
+                        <th>Clan</th>
+                        <th>Territorio</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% cats.forEach(cat => { %>
+                        <tr>
+                            <td><%= cat.id %></td>
+                            <td><%= cat.name %></td>
+                            <td>
+                                <%
+                                    if (cat.birth_date) {
+                                        const birthDate = new Date(cat.birth_date);
+                                        const today = new Date();
+                                        let age = today.getFullYear() - birthDate.getFullYear();
+                                        const m = today.getMonth() - birthDate.getMonth();
+                                        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+                                            age--;
+                                        }
+                                        %><%= age %> años<%
+                                    } else {
+                                        %>Desconocida<%
+                                    }
+                                %>
+                            </td>
+                            <td><%= cat.clan_name %></td>
+                            <td><%= cat.territory_name %></td>
+                            <td>
+                                <div class="d-flex gap-2">
+                                    <a href="/gatitos/<%= cat.id %>/editar" class="btn btn-secondary btn-sm">Editar</a>
+                                    <form action="/gatitos/<%= cat.id %>/eliminar?_method=DELETE" method="POST" class="d-inline">
+                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de que quieres eliminar a <%= cat.name %>?')">Eliminar</button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </div>
+    <% } else { %>
+        <div class="alert alert-info text-center" role="alert">
+            No hay gatitos registrados en el reino aún. ¡Es hora de inicializarlos!
+            <a href="/gatitos/nuevo" class="alert-link">Añadir el primer gatito.</a>
+        </div>
+    <% } %>
+</div>
+
+<%- include('../partials/footer') %>

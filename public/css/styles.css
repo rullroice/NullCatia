@@ -1,0 +1,310 @@
+/* Importaciones de otros archivos CSS */
+@import url('./colors.css');
+@import url('./fonts.css');
+@import url('./structure.css');
+
+/* --- Estilos Generales --- */
+
+/* Estilos para el cuerpo del documento */
+body {
+    background-color: var(--color-background-light);
+    color: var(--color-text-dark);
+}
+
+/* Estilos para enlaces (hipervínculos) */
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    /* CORRECCIÓN: 'darken()' no es una función CSS estándar. */
+    /* Se ha reemplazado con un valor hexadecimal. Ajusta este color si es necesario. */
+    color: #3a7bd5; /* Tono más oscuro de un azul primario de ejemplo */
+    text-decoration: underline;
+}
+
+/* --- Estilos para Componentes UI --- */
+
+/* Estilos de botones genéricos */
+.btn {
+    display: inline-block;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: var(--font-family-primary);
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    text-align: center;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+/* Botón Primario */
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+}
+
+.btn-primary:hover {
+    background-color: #3a7bd5; /* Tono más oscuro de --color-primary */
+}
+
+/* Botón de Peligro/Eliminar */
+.btn-danger {
+    background-color: var(--color-error);
+    color: var(--color-text-light);
+}
+
+.btn-danger:hover {
+    background-color: #c82333; /* Tono más oscuro de --color-error */
+}
+
+/* Botón secundario (ej. para editar) */
+.btn-secondary {
+    background-color: var(--color-border);
+    color: var(--color-text-dark);
+}
+
+.btn-secondary:hover {
+    background-color: #b0b4b9;
+}
+
+/* Estilos para las tarjetas de gatitos */
+.cat-card {
+    background-color: white;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05); /* Sombra suave */
+    display: flex;
+    flex-direction: column;
+}
+
+.cat-card__header {
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 10px;
+}
+
+.cat-card__title {
+    font-size: 1.6em;
+    margin-bottom: 5px;
+    color: var(--color-primary);
+}
+
+.cat-card__body p {
+    font-size: 0.95em;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.cat-card__actions {
+    display: flex;
+    gap: 10px; /* Espacio entre botones de acción */
+    margin-top: 15px;
+}
+
+/* Estilos para formularios */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-label {
+    display: block; /* Cada label en su propia línea */
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: var(--color-text-dark);
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    font-size: 1em;
+    font-family: var(--font-family-primary);
+    color: var(--color-text-dark);
+    box-sizing: border-box; /* Incluye padding y borde en el ancho total */
+}
+
+.form-control:focus {
+    border-color: var(--color-primary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.25); /* Sombra al enfocar */
+}
+
+/* Estilos para tablas (ej. listado de clanes/territorios) */
+.table-container {
+    overflow-x: auto; /* Permite scroll horizontal en tablas grandes en móviles */
+    margin-bottom: 20px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse; /* Elimina espacio entre celdas */
+    min-width: 600px; /* Mínimo ancho para tablas en móviles si es necesario */
+}
+
+.table th,
+.table td {
+    padding: 12px 15px;
+    border: 1px solid var(--color-border);
+    text-align: left;
+}
+
+.table th {
+    background-color: var(--color-background-light);
+    font-family: var(--font-family-headings);
+    font-weight: 700;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+.table tbody tr:nth-child(even) { /* Estilo para filas pares */
+    background-color: #fcfcfc;
+}
+
+.table tbody tr:hover {
+    background-color: #f1f1f1; /* Resaltar fila al pasar el ratón */
+}
+
+/* Mensajes de alerta/flash */
+.alert {
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    font-weight: 500;
+    border: 1px solid transparent; /* Borde predeterminado invisible */
+    opacity: 0; /* Por defecto oculto */
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.alert.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border-color: #c3e6cb;
+}
+
+.alert-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border-color: #f5c6cb;
+}
+
+.alert-warning {
+    background-color: #fff3cd;
+    color: #856404;
+    border-color: #ffeeba;
+}
+
+/* Estilos de navegación (para navbar.ejs) */
+.main-nav {
+    display: flex;
+    justify-content: center; /* Centra los elementos de navegación */
+    list-style: none; /* Elimina viñetas */
+    padding: 0;
+    margin: 0;
+}
+
+.main-nav li a {
+    color: var(--color-text-light);
+    padding: 10px 15px;
+    display: block;
+    transition: background-color 0.3s ease;
+    font-weight: 500;
+}
+
+.main-nav li a:hover,
+.main-nav li a.active { /* Para resaltar la página actual */
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+/* --- Estilos para Hero Section --- */
+.hero-section {
+    background-image: url('/img/hero-background.jpg'); /* Asegúrate de que esta ruta sea correcta */
+    background-size: cover;
+    background-position: center;
+    color: var(--color-text-light); /* Texto claro sobre fondo oscuro */
+    padding: 80px 20px; /* Reduce el padding superior/inferior para hacerlo menos "extendido" */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px; /* Altura mínima para que no se vea demasiado pequeño */
+    position: relative; /* Para el overlay si lo necesitas */
+}
+
+/* Opcional: Un overlay oscuro para mejorar la legibilidad del texto */
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4); /* Capa oscura semitransparente */
+    z-index: 1;
+}
+
+.hero-section > * { /* Asegura que el contenido esté por encima del overlay */
+    z-index: 2;
+    position: relative;
+}
+
+.hero-section h1 {
+    font-family: var(--font-family-headings);
+    font-size: 3.5em; /* Un poco más grande para impacto */
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra para el texto del título */
+}
+
+.hero-section p {
+    font-family: var(--font-family-primary);
+    font-size: 1.2em;
+    max-width: 800px; /* Limita el ancho del párrafo para mejor legibilidad */
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    /* Texto Justificado para Hero Section */
+    text-align: justify;
+    text-justify: inter-word; /* Para compatibilidad con algunos navegadores */
+}
+
+/* --- Ajuste General para Texto Justificado en Paneles Narrativos --- */
+.narrative-panel .text-content p {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+/* --- Ajuste General para Texto Justificado en Tarjetas de Acción --- */
+.call-to-action-card p {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+/* --- Ajuste para el botón principal del Hero Section --- */
+.hero-section .hero-btn {
+    font-size: 1.2em;
+    padding: 15px 30px;
+    border-radius: 50px; /* Botones más redondeados si te gusta */
+    transition: all 0.3s ease;
+}
+
+.hero-section .hero-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}

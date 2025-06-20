@@ -1,0 +1,64 @@
+<%- include('../partials/header', { title: title }) %>
+<%- include('../partials/navbar') %>
+
+<div class="container mt-4">
+    <h1 class="mb-4">Todos los Pergaminos del Reino</h1>
+
+    <div class="d-flex justify-content-end mb-3">
+        <a href="/scrolls/nuevo" class="btn btn-primary">
+            <i class="fas fa-plus me-2"></i> Añadir Nuevo Pergamino
+        </a>
+    </div>
+
+    <% if (scrolls && scrolls.length > 0) { %>
+        <div class="table-responsive">
+            <table class="table table-hover table-striped">
+                <thead class="table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Título</th>
+                        <th>Contenido</th>
+                        <th>Gato Asociado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% scrolls.forEach(scroll => { %>
+                        <tr>
+                            <td><%= scroll.id %></td>
+                            <td><%= scroll.title %></td>
+                            <td>
+                                <% if (scroll.content) { %>
+                                    <%= scroll.content.substring(0, 50) %>...
+                                <% } else { %>
+                                    (Sin contenido)
+                                <% } %>
+                            </td>
+                            <td><%= scroll.cat_name || 'Sin Gato Asignado' %></td>
+                            <td>
+                                <div class="d-flex gap-2">
+                                    <a href="/scrolls/<%= scroll.id %>/editar" class="btn btn-secondary btn-sm">Editar</a>
+                                    
+                                    <form action="/scrolls/<%= scroll.id %>/eliminar?_method=DELETE" method="POST" class="d-inline">
+                                        <%
+                                            const escapedTitle = scroll.title ? scroll.title.replace(/'/g, "\\'").replace(/"/g, '\\"') : 'este pergamino';
+                                        %>
+                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de que quieres eliminar el pergamino &quot;<%= escapedTitle %>&quot;?')">Eliminar</button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </div>
+    <% } else { %>
+        <div class="alert alert-info text-center" role="alert">
+            No hay pergaminos registrados en el reino aún. ¡Es hora de crear algunos!
+            <a href="/scrolls/nuevo" class="alert-link">Añadir el primer pergamino.</a>
+        </div>
+    <% } %>
+    <p>Contenido principal de la página de pergaminos (tabla comentada si usas el comentario HTML).</p>
+</div>
+
+<%- include('../partials/footer') %>
