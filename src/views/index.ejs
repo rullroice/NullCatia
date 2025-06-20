@@ -1,7 +1,110 @@
-<%- include('partials/header', { title: title }) %>
-<%- include('partials/navbar') %>
+<%- include('./partials/header', { title: title }) %>
+<%- include('./partials/navbar') %>
 
-<h1>¡Bienvenido al Reino de NULLCATIA!</h1>
-<p>Comienza tu viaje por el backend felino...</p>
+<div class="container-fluid hero-section text-center d-flex flex-column justify-content-center align-items-center py-5">
+    <h1 class="display-3 fw-bold mb-4">¡NullCatia te Llama, Viajero Valiente!</h1>
+    <p class="lead mb-4 px-3 px-md-5">Adéntrate en un reino donde la magia ancestral fluye en la sangre de felinos legendarios. Descubre el vasto tapiz de la historia, únete a clanes forjados en el honor, reclama territorios indómitos y forja tu propia leyenda en un mundo al borde de la revelación. NullCatia es más que un hogar; es un destino.</p>
+    <a href="/gatitos" class="btn btn-dark btn-lg mt-4 hero-btn">
+        <i class="fas fa-paw me-2"></i> Comienza Tu Aventura Ahora
+    </a>
+</div>
 
-<%- include('partials/footer') %>
+<div class="container my-5">
+
+    <section class="narrative-panel row align-items-center mb-5 flex-column flex-md-row">
+        <div class="col-md-6 order-md-2 d-flex justify-content-center align-items-center panel-image-container mb-4 mb-md-0">
+            <img src="/img/pergamino.png" alt="Pergamino ancestral" class="img-fluid rounded shadow">
+        </div>
+        <div class="col-md-6 order-md-1 d-flex justify-content-center align-items-center panel-text-container text-center text-md-start">
+            <div class="text-content p-3 p-md-0">
+                <h2 class="display-6 fw-bold mb-3">El Tejido Arcane: Secretos de los Pergaminos Prohibidos</h2>
+                <p class="lead mb-3">Desde la aurora de los tiempos, antes de que los primeros clanes dejaran sus huellas en el musgo, el Gran Espíritu Felino tejió la realidad con hebras de pura magia. Al ascender a las estrellas, dejó atrás los **Pergaminos Prohibidos**: rollos de sabiduría ancestral, imbuidos con hechizos olvidados y profecías crípticas que guardan los secretos de la creación y la destrucción de NullCatia.</p>
+                <p class="mb-4">Se rumorea que estos pergaminos, celosamente custodiados en los recónditos Santuarios Velados, tienen el poder de alterar el destino. Aquellos lo suficientemente valientes y sabios como para descifrar sus símbolos, aprender sus rituales y canalizar la energía primigenia que contienen, podrían no solo dominar las artes arcanas más poderosas, sino también desvelar verdades que desafían la comprensión felina. ¿Estás listo para empuñar el conocimiento que podría moldear el cosmos mismo?</p>
+                <a href="/scrolls" class="btn btn-dark btn-lg mt-3 panel-btn">
+                    <i class="fas fa-book-open me-2"></i> Desvela los Antiguos Secretos
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="narrative-panel row align-items-center mb-5 flex-column flex-md-row">
+        <div class="col-md-6 order-md-1 d-flex justify-content-center align-items-center panel-image-container mb-4 mb-md-0">
+            <img src="/img/clanes.png" alt="Clanes felinos" class="img-fluid rounded shadow">
+        </div>
+        <div class="col-md-6 order-md-2 d-flex justify-content-center align-items-center panel-text-container text-center text-md-start">
+            <div class="text-content p-3 p-md-0">
+                <h2 class="display-6 fw-bold mb-3">Lazos Indomables: La Hermandad de los Clanes</h2>
+                <p class="lead mb-3">En el corazón palpitante de NullCatia, la supervivencia y la gloria se forjan a través de la unidad de los **Clanes**. No son meros grupos; son familias forjadas en el juramento, la sangre y el acero, cada una con su propia herencia, sus tradiciones ancestrales y su rugido distintivo. Desde los sigilosos cazadores del Clan de la Luna Eterna, que se mueven como sombras bajo el dosel del bosque, hasta los fieros guardianes del Clan del Sol Radiante, cuya valentía ilumina las llanuras abiertas, cada clan es un pilar de fortaleza.</p>
+                <p class="mb-4">Aquí, cada garra contribuye, cada corazón late al unísono. Juntos, los clanes defienden sus fronteras contra las bestias sombrías, compiten en las legendarias Cacerías de Maestría y, sobre todo, forjan un legado que resonará por generaciones. Unirse a un clan es encontrar tu propósito, tu familia y tu lugar en el gran tapiz de NullCatia. ¿Estás preparado para luchar codo a codo y grabar tu nombre junto al de tus hermanos y hermanas felinas?</p>
+                <a href="/clanes" class="btn btn-dark btn-lg mt-3 panel-btn">
+                    <i class="fas fa-users me-2"></i> Únete a un Clan
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="narrative-panel row align-items-center mb-5 flex-column flex-md-row">
+        <div class="col-md-6 order-md-2 d-flex justify-content-center align-items-center panel-image-container mb-4 mb-md-0">
+            <img src="/img/mapa.png" alt="Mapa de Territorios" class="img-fluid rounded shadow">
+        </div>
+        <div class="col-md-6 order-md-1 d-flex justify-content-center align-items-center panel-text-container text-center text-md-start">
+            <div class="text-content p-3 p-md-0">
+                <h2 class="display-6 fw-bold mb-3">Las Tierras Salvajes: Domina los Territorios</h2>
+                <p class="lead mb-3">El vasto y místico reino de NullCatia se extiende en una miríada de **Territorios**, cada uno con su propia topografía, sus misterios ocultos y sus recursos invaluables esperando ser reclamados. Desde los densos y susurrantes Bosques de la Sombra, hogar de criaturas esquivas y flora rara, hasta las imponentes Cumbres Heladas de los Antiguos, donde los vientos cantan profecías gélidas, cada pedazo de tierra es una pieza estratégica en el tablero de poder.</p>
+                <p class="mb-4">Controlar un territorio no solo otorga prestigio incalculable a tu clan, sino que también concede acceso exclusivo a recursos vitales para tu crecimiento y puntos de defensa cruciales contra las invasiones. La diplomacia más astuta y la fuerza más inquebrantable serán tus herramientas para expandir tu influencia. Los clanes luchan sin cesar por el dominio, buscando dejar su marca en el mapa y asegurar la prosperidad eterna de su linaje. ¿Estás listo para liderar la carga y grabar tu emblema en las tierras de NullCatia?</p>
+                <a href="/territorios" class="btn btn-dark btn-lg mt-3 panel-btn">
+                    <i class="fas fa-map-marked-alt me-2"></i> Conquista Nuevos Territorios
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="narrative-panel row align-items-center mb-5 flex-column flex-md-row">
+        <div class="col-md-6 order-md-1 d-flex justify-content-center align-items-center panel-image-container mb-4 mb-md-0">
+            <img src="/img/gatoMago.png" alt="Gato Mago" class="img-fluid rounded shadow">
+        </div>
+        <div class="col-md-6 order-md-2 d-flex justify-content-center align-items-center panel-text-container text-center text-md-start">
+            <div class="text-content p-3 p-md-0">
+                <h2 class="display-6 fw-bold mb-3">Tu Propia Leyenda: El Ascenso del Gatito</h2>
+                <p class="lead mb-3">Pero la grandiosa saga de NullCatia está incompleta sin el protagonista más importante: **tú**. Eres un Gatito, un alma joven con una chispa de potencial ilimitado, destinado a tejer tu propia leyenda en este reino de maravillas y peligros. Tu aventura comienza desde el humilde maullido, pero cada paso, cada desafío superado, cada amistad forjada, te acerca a convertirte en un héroe de proporciones épicas.</p>
+                <p class="mb-4">Ya sea que tu destino sea empuñar magia arcana para desterrar las sombras, liderar asaltos audaces contra bestias míticas, o desenterrar artefactos perdidos de eras olvidadas, el camino es tuyo para forjar. Entrena tus habilidades en las Arenas de Valor, descubre tu conexión única con la magia, encuentra el clan que resonará con tu espíritu y reclama un territorio que llame tuyo. ¿Estás listo para asumir el manto, dejar tu huella imborrable y convertirte en la leyenda que NullCatia espera desesperadamente?</p>
+                <a href="/gatitos" class="btn btn-dark btn-lg mt-3 panel-btn">
+                    <i class="fas fa-cat me-2"></i> Forja Tu Destino Ahora
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="action-cards row justify-content-center gx-4 gy-4 mb-5">
+        <div class="col-md-4 d-flex">
+            <div class="call-to-action-card card text-center shadow-sm flex-fill p-4">
+                <h3 class="h4 mb-3">El Gran Torneo</h3>
+                <p class="mb-4">Cada ciclo lunar, los clanes se reúnen en la Arena de los Ancianos para el Gran Torneo. Aquí, los guerreros más diestros prueban su valía en combate ritual. La victoria no solo otorga inmensa gloria y respeto, sino también valiosos recursos y artefactos únicos. ¡Prepara tus garras y tu estrategia!</p>
+                <a href="/torneo" class="btn btn-primary btn-sm mt-auto">
+                    <i class="fas fa-trophy me-2"></i> Participa en el Torneo
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4 d-flex">
+            <div class="call-to-action-card card text-center shadow-sm flex-fill p-4">
+                <h3 class="h4 mb-3">Eventos Comunitarios</h3>
+                <p class="mb-4">NullCatia está viva con festivales, misterios y peligros emergentes. Participa en eventos especiales de la comunidad para descubrir nuevas tramas, ganar recompensas exclusivas y colaborar con felinos de todos los clanes. ¡Cada evento es una nueva oportunidad para la aventura y la camaradería!</p>
+                <a href="/eventos" class="btn btn-primary btn-sm mt-auto">
+                    <i class="fas fa-calendar-alt me-2"></i> Explora los Eventos
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4 d-flex">
+            <div class="call-to-action-card card text-center shadow-sm flex-fill p-4">
+                <h3 class="h4 mb-3">El Santuario de los Ecos</h3>
+                <p class="mb-4">Más allá de las tierras conocidas, el Santuario de los Ecos guarda los susurros de los ancestros. Aquí, los felinos buscan sabiduría, misiones divinas y bendiciones que pueden cambiar el curso de su destino. ¿Estás listo para escuchar las voces del pasado y emprender un camino sagrado?</p>
+                <a href="/santuario" class="btn btn-primary btn-sm mt-auto">
+                    <i class="fas fa-church me-2"></i> Visita el Santuario
+                </a>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<%- include('./partials/footer') %>

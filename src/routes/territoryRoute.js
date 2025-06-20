@@ -2,17 +2,22 @@ const express = require('express');
 const router = express.Router();
 const territoryController = require('../controllers/territoryController');
 
-// Listar
+// Listar territorios
 router.get('/', territoryController.listTerritories);
-// Formulario nuevo
+
+// Mostrar formulario para nuevo territorio
 router.get('/nuevo', territoryController.showTerritoryForm);
-// Crear
+
+// Crear nuevo territorio
 router.post('/', territoryController.createTerritory);
-// Formulario editar
+
+// Mostrar formulario para editar un territorio
 router.get('/:id/editar', territoryController.showEditTerritory);
-// Actualizar
-router.post('/:id/editar', territoryController.updateTerritory);
-// Eliminar
-router.post('/:id/eliminar', territoryController.deleteTerritory);
+
+// Actualizar un territorio (CAMBIO A PUT para usar method-override)
+router.put('/:id/editar', territoryController.updateTerritory); // <-- CAMBIO AQUÍ
+
+// Eliminar un territorio (CAMBIO A DELETE para usar method-override)
+router.delete('/:id/eliminar', territoryController.deleteTerritory); // <-- CAMBIO AQUÍ
 
 module.exports = router;

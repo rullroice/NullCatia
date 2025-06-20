@@ -10,9 +10,9 @@ router.get('/nuevo', scrollController.showScrollForm);
 router.post('/', scrollController.createScroll);
 // Formulario editar
 router.get('/:id/editar', scrollController.showEditScroll);
-// Actualizar
-router.post('/:id/editar', scrollController.updateScroll);
-// Eliminar
-router.post('/:id/eliminar', scrollController.deleteScroll);
+// Actualizar (Cambio de POST a PUT, para usar method-override)
+router.put('/:id/editar', scrollController.updateScroll);
+// Eliminar (Cambio de POST a DELETE, para usar method-override)
+router.delete('/:id/eliminar', scrollController.deleteScroll);
 
 module.exports = router;

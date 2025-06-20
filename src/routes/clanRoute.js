@@ -2,17 +2,22 @@ const express = require('express');
 const router = express.Router();
 const clanController = require('../controllers/clanController');
 
-// Listar
+// Listar clanes
 router.get('/', clanController.listClans);
-// Formulario nuevo
+
+// Mostrar formulario para nuevo clan
 router.get('/nuevo', clanController.showClanForm);
-// Crear
+
+// Crear nuevo clan
 router.post('/', clanController.createClan);
-// Formulario editar
+
+// Mostrar formulario para editar un clan
 router.get('/:id/editar', clanController.showEditClan);
-// Actualizar
-router.post('/:id/editar', clanController.updateClan);
-// Eliminar
-router.post('/:id/eliminar', clanController.deleteClan);
+
+// Actualizar un clan (CAMBIO A PUT para usar method-override)
+router.put('/:id/editar', clanController.updateClan); // <-- CAMBIO AQUÍ
+
+// Eliminar un clan (CAMBIO A DELETE para usar method-override)
+router.delete('/:id/eliminar', clanController.deleteClan); // <-- CAMBIO AQUÍ
 
 module.exports = router;

@@ -1,0 +1,61 @@
+<%- include('../partials/header', { title: title }) %>
+<%- include('../partials/navbar') %>
+
+<div class="container mt-4">
+    <h1 class="mb-4">Clanes del Reino</h1>
+
+    <div class="d-flex justify-content-end mb-3">
+        <a href="/clanes/nuevo" class="btn btn-primary">
+            <i class="fas fa-plus me-2"></i> Añadir Nuevo Clan
+        </a>
+    </div>
+
+    <% if (clans && clans.length > 0) { %>
+        <div class="table-responsive">
+            <table class="table table-hover table-striped">
+                <thead class="table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre del Clan</th>
+                        <th>Descripción</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% clans.forEach(clan => { %>
+                        <tr>
+                            <td><%= clan.id %></td>
+                            <td><%= clan.name %></td>
+                            <td>
+                                <% if (clan.description) { %>
+                                    <%= clan.description.substring(0, 70) %><% if (clan.description.length > 70) { %>...<% } %>
+                                <% } else { %>
+                                    (Sin descripción)
+                                <% } %>
+                            </td>
+                            <td>
+                                <div class="d-flex gap-2">
+                                    <a href="/clanes/<%= clan.id %>/editar" class="btn btn-secondary btn-sm">Editar</a>
+                                    
+                                    <form action="/clanes/<%= clan.id %>/eliminar?_method=DELETE" method="POST" class="d-inline">
+                                        <%
+                                            const escapedName = clan.name ? clan.name.replace(/'/g, "\\'").replace(/"/g, '\\"') : 'este clan';
+                                        %>
+                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de que quieres eliminar el clan &quot;<%= escapedName %>&quot;? Esta acción no se puede deshacer y puede afectar a los gatitos asociados.')">Eliminar</button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </div>
+    <% } else { %>
+        <div class="alert alert-info text-center" role="alert">
+            No hay clanes registrados en el reino aún. ¡Es hora de organizar a nuestros felinos!
+            <a href="/clanes/nuevo" class="alert-link">Añadir el primer clan.</a>
+        </div>
+    <% } %>
+</div>
+
+<%- include('../partials/footer') %>
