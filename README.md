@@ -2,7 +2,11 @@
 
 ## 1\. Descripción General
 
-NullCatia es una aplicación web diseñada para la gestión integral de un reino felino fantástico. Permite a los administradores llevar un registro detallado de los valientes gatitos que lo habitan, organizarlos en clanes, delimitar sus territorios y documentar sus valiosos pergaminos. Es una herramienta esencial para la administración y narrativa de este próspero mundo.
+NULLCATIA es un vasto reino digital habitado por miles de gatitos nulos que nacen sin valores predeterminados y necesitan ser inicializados para encontrar su propósito. Cada gatito pertenece a un Clan que custodia un tipo de Territorio (bosques binarios, ríos de paquetes, montañas de índices, praderas de pila, archipiélago de APIs, cuevas de caché, océanos de objetos, llanuras de logs, valles de versiones). Por tradición, los clanes comparten saberes mediante Pergaminos donde registran consultas ancestrales que devuelven sentido a la existencia felina.
+Con la inminente Transformación Felina 4.0, el Consejo ha decidido modernizar su infraestructura con un Backend Sagrado: un conjunto de microservicios Express que exponen un API REST sobre una base de datos MySQL consolidada. Este backend está compuesto por tres artefactos legendarios:
+1.	El Pool de Conexiones Eternas: un cántaro encantado que gestiona las corrientes de bits evitando que los gatitos ahoguen el nodo.
+2.	Los Controladores del Equilibrio: monjes que validan cada petición y repelen dependencias circulares con la fuerza del async/await.
+3.	El Enrutador de los Mil Caminos: un laberinto ordenado en capas donde cada endpoint RESTful revela un pedazo de la memoria gatuna.
 
 -----
 
