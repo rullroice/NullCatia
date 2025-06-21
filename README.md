@@ -211,17 +211,8 @@ Para asegurar la robustez, seguridad y mantenibilidad de tu Backend Sagrado en e
 * **Provee un `.env.example`:** Crea un archivo `.env.example` que contenga la estructura de tu `.env` pero con valores vacíos o de ejemplo. Esto permitirá a otros desarrolladores (o a ti mismo en otro entorno) saber qué variables de entorno necesita la aplicación para funcionar, sin exponer tus credenciales reales.
 
     ```bash
-    # Contenido de tu .gitignore
-    .env
-
-    # Contenido de tu .env.example
-    DB_HOST=localhost
-    DB_USER=root
-    DB_PASSWORD=
-    DB_NAME=NULLCATIA
-    PORT=3000
-
-    # Contenido de tu .env (¡NO LO SUBAS A GIT!)
+    
+    # Contenido de tu .env
     DB_HOST=your_db_host
     DB_USER=your_db_user
     DB_PASSWORD=your_secure_password
@@ -302,7 +293,7 @@ Para poner en marcha el proyecto NULLCATIA en tu entorno local, sigue cuidadosam
     Con todas las dependencias instaladas y la base de datos correctamente configurada, puedes iniciar el servidor de la aplicación en modo desarrollo. Este modo es ideal para el desarrollo, ya que a menudo incluye características como el reinicio automático del servidor al detectar cambios en el código (hot-reloading) y mensajes de depuración detallados.
 
     ```bash
-    npm run dev
+    npm start
     ```
 
     Una vez que el servidor se haya iniciado correctamente, la aplicación estará accesible a través de tu navegador web. Generalmente, podrás acceder a ella en la dirección `http://localhost:3000` (o el puerto específico que se haya configurado para el servidor Express).
