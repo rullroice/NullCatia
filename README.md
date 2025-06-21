@@ -1,5 +1,9 @@
 ## Evaluación – Proyecto NULLCATIA: Un Viaje a la Modernización Felina
-Nombres: Vicente Lizana, Jhon Bustos, Raul Ibarra, Jorge Moncada
+Nombres: Raul Ibarra, Jhon Bustos, Vicente Lizana y Jorge Moncada
+
+Video explicativo: 
+
+[![YouTube](https://img.shields.io/badge/YouTube-red?logo=youtube&logoColor=white)](https://www.youtube.com/watch?v=O4ep4zFIeGU)
 
 ### Introducción
 
