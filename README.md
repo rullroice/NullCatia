@@ -215,7 +215,7 @@ El Proyecto NullCatia representa una integración creativa y robusta de la narra
 
 La implementación de funciones avanzadas como la validación de datos, búsqueda, paginación y una interfaz responsiva con Bootstrap, asegura que tanto la experiencia del usuario como la calidad de los datos estén siempre garantizadas. La guía detallada de instalación y uso, junto con una estructura de base de datos bien diseñada, permite una rápida adaptación y expansión futura del sistema.
 
-En definitiva, NullCatia no solo moderniza la infraestructura del reino, sino que también pone en manos de sus usuarios una herramienta flexible, intuitiva y preparada para escalar, consolidando así la Transformación Felina 4.0 y llevando la gestión del reino a una nueva era digital.
+En definitiva, NullCatia no solo moderniza la infraestructura del reino, sino que también pone en manos de sus usuarios una herramienta flexible, intuitiva y preparada, consolidando así la Transformación Felina 4.0 y llevando la gestión del reino a una nueva era digital.
 
 ---
 
