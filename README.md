@@ -115,7 +115,7 @@ Sigue estos pasos para poner en marcha el proyecto en tu entorno local:
       * **Crear la Base de Datos:** Abre tu cliente de base de datos (ej. phpMyAdmin, MySQL Workbench) y crea una nueva base de datos llamada `nullcatia`.
       * **Importar el Script SQL:** Localiza el archivo `nullcatia.sql` en la raíz de tu proyecto. Importa este archivo en la base de datos `nullcatia` que acabas de crear. Este script creará todas las tablas y las poblará con datos de prueba (tus clanes, territorios, gatitos de equipo y pergaminos).
 
-    **[¡ESPACIO PARA CAPTURA DE PANTALLA: Proceso de importación del archivo SQL en phpMyAdmin o tu cliente preferido]**
+        ![Importar](https://github.com/user-attachments/assets/5e5b317d-6b67-419e-b52f-8e4ffec5a773)
 
       * **Configurar la Conexión en la Aplicación:**
         Abre el archivo `config/db.js`. Asegúrate de que las credenciales (`host`, `user`, `password`) coincidan con las de tu servidor MySQL/MariaDB local. Por ejemplo:
