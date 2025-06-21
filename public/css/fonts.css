@@ -1,12 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@500;700&display=swap');
 
 :root {
-    /* Definición de variables para las familias de fuentes */
-    --font-family-primary: 'Roboto', sans-serif;       /* Fuente principal para el cuerpo de texto */
-    --font-family-headings: 'Montserrat', sans-serif;  /* Fuente para títulos y encabezados */
+    --font-family-primary: 'Roboto', sans-serif; 
+    --font-family-headings: 'Montserrat', sans-serif; 
 }
 
-/* Aplicación básica de fuentes */
 body {
     font-family: var(--font-family-primary);
     font-size: 16px;
@@ -16,5 +14,5 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-family-headings);
     font-weight: 700;
-    color: var(--color-primary); /* Por defecto, los títulos usan el color primario */
+    color: var(--color-primary);
 }

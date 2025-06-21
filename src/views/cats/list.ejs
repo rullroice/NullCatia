@@ -4,14 +4,25 @@
 <div class="container mt-4">
     <h1 class="mb-4">Todos los Gatitos del Reino</h1>
 
-    <div class="d-flex justify-content-end mb-3">
-        <a href="/gatitos/nuevo" class="btn btn-primary">
-            <i class="fas fa-plus me-2"></i> Añadir Nuevo Gatito
-        </a>
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <form action="/gatitos" method="GET" class="d-flex">
+                <input type="text" name="search" class="form-control me-2" placeholder="Buscar gatito por nombre..." value="<%= searchTerm || '' %>">
+                <button type="submit" class="btn btn-outline-secondary">Buscar</button>
+                <% if (searchTerm) { %>
+                    <a href="/gatitos" class="btn btn-outline-danger ms-2">Limpiar búsqueda</a>
+                <% } %>
+            </form>
+        </div>
+        <div class="col-md-6 text-end">
+            <a href="/gatitos/nuevo" class="btn btn-primary">
+                <i class="fas fa-plus me-2"></i> Añadir Nuevo Gatito
+            </a>
+        </div>
     </div>
 
     <% if (cats && cats.length > 0) { %>
-        <div class="table-responsive">
+        <div class="table-responsive mb-4">
             <table class="table table-hover table-striped">
                 <thead class="table-dark">
                     <tr>
@@ -20,6 +31,8 @@
                         <th>Edad</th>
                         <th>Clan</th>
                         <th>Territorio</th>
+                        <th>Rol</th>
+                        <th>Habilidad Especial</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -44,8 +57,10 @@
                                     }
                                 %>
                             </td>
-                            <td><%= cat.clan_name %></td>
-                            <td><%= cat.territory_name %></td>
+                            <td><%= cat.clan_name || 'N/A' %></td>
+                            <td><%= cat.territory_name || 'N/A' %></td>
+                            <td><%= cat.role || 'N/A' %></td>  
+                            <td><%= cat.special_ability || 'N/A' %></td>
                             <td>
                                 <div class="d-flex gap-2">
                                     <a href="/gatitos/<%= cat.id %>/editar" class="btn btn-secondary btn-sm">Editar</a>
@@ -59,9 +74,42 @@
                 </tbody>
             </table>
         </div>
+
+        <nav aria-label="Page navigation" class="mt-4 mb-5">
+            <ul class="pagination justify-content-center">
+                <% // Enlace "Anterior" %>
+                <li class="page-item <%= currentPage === 1 ? 'disabled' : '' %>">
+                    <a class="page-link"
+                       href="/gatitos?page=<%= currentPage - 1 %><%= searchTerm ? '&search=' + encodeURIComponent(searchTerm) : '' %>"
+                       aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+
+                <% // Números de página %>
+                <% for (let i = 1; i <= totalPages; i++) { %>
+                    <li class="page-item <%= i === currentPage ? 'active' : '' %>">
+                        <a class="page-link"
+                           href="/gatitos?page=<%= i %><%= searchTerm ? '&search=' + encodeURIComponent(searchTerm) : '' %>">
+                            <%= i %>
+                        </a>
+                    </li>
+                <% } %>
+
+                <% // Enlace "Siguiente" %>
+                <li class="page-item <%= currentPage === totalPages ? 'disabled' : '' %>">
+                    <a class="page-link"
+                       href="/gatitos?page=<%= currentPage + 1 %><%= searchTerm ? '&search=' + encodeURIComponent(searchTerm) : '' %>"
+                       aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
     <% } else { %>
-        <div class="alert alert-info text-center" role="alert">
-            No hay gatitos registrados en el reino aún. ¡Es hora de inicializarlos!
+        <div class="alert alert-info text-center mb-5" role="alert">
+            No hay gatitos registrados en el reino<%= searchTerm ? ' que coincidan con la búsqueda.' : ' aún.' %> ¡Es hora de inicializarlos!
             <a href="/gatitos/nuevo" class="alert-link">Añadir el primer gatito.</a>
         </div>
     <% } %>

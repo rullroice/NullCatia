@@ -4,20 +4,39 @@
 <div class="container mt-4">
     <h1 class="mb-4">Territorios del Reino</h1>
 
-    <div class="d-flex justify-content-end mb-3">
-        <a href="/territorios/nuevo" class="btn btn-primary">
-            <i class="fas fa-plus me-2"></i> Añadir Nuevo Territorio
-        </a>
+    <% if (typeof message !== 'undefined' && message) { %>
+        <div class="alert alert-<%= message.type %> alert-dismissible fade show" role="alert">
+            <%= message.text %>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <% } %>
+
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <form action="/territorios" method="GET" class="d-flex">
+                <input type="text" name="search" class="form-control me-2" placeholder="Buscar territorio por nombre..." value="<%= searchTerm || '' %>">
+                <button type="submit" class="btn btn-outline-secondary">Buscar</button>
+                <% if (searchTerm) { %>
+                    <a href="/territorios" class="btn btn-outline-danger ms-2">Limpiar búsqueda</a>
+                <% } %>
+            </form>
+        </div>
+        <div class="col-md-6 text-end">
+            <a href="/territorios/nuevo" class="btn btn-primary">
+                <i class="fas fa-plus me-2"></i> Añadir Nuevo Territorio
+            </a>
+        </div>
     </div>
 
     <% if (territories && territories.length > 0) { %>
-        <div class="table-responsive">
+        <div class="table-responsive mb-4">
             <table class="table table-hover table-striped">
                 <thead class="table-dark">
                     <tr>
                         <th>ID</th>
                         <th>Nombre del Territorio</th>
                         <th>Descripción</th>
+                        <th>Gatitos Asociados</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -28,20 +47,18 @@
                             <td><%= territory.name %></td>
                             <td>
                                 <% if (territory.description) { %>
-                                    <%= territory.description.substring(0, 70) %><% if (territory.description.length > 70) { %>...<% } %>
+                                    <%= territory.description %>
                                 <% } else { %>
                                     (Sin descripción)
                                 <% } %>
                             </td>
+                            <td><%= territory.cat_count %></td>
                             <td>
                                 <div class="d-flex gap-2">
                                     <a href="/territorios/<%= territory.id %>/editar" class="btn btn-secondary btn-sm">Editar</a>
-                                    
                                     <form action="/territorios/<%= territory.id %>/eliminar?_method=DELETE" method="POST" class="d-inline">
-                                        <%
-                                            const escapedName = territory.name ? territory.name.replace(/'/g, "\\'").replace(/"/g, '\\"') : 'este territorio';
-                                        %>
-                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de que quieres eliminar el territorio &quot;<%= escapedName %>&quot;? Esta acción no se puede deshacer y puede afectar a los gatitos asociados.')">Eliminar</button>
+                                        <button type="submit" class="btn btn-danger btn-sm"
+                                                onclick="return confirm('¿Estás seguro de que quieres eliminar este territorio?');">Eliminar</button>
                                     </form>
                                 </div>
                             </td>
@@ -50,9 +67,39 @@
                 </tbody>
             </table>
         </div>
+
+        <nav aria-label="Page navigation" class="mt-4 mb-5">
+            <ul class="pagination justify-content-center">
+                <li class="page-item <%= currentPage === 1 ? 'disabled' : '' %>">
+                    <a class="page-link"
+                       href="/territorios?page=<%= currentPage - 1 %><%= searchTerm ? '&search=' + encodeURIComponent(searchTerm) : '' %>"
+                       aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+
+                <% for (let i = 1; i <= totalPages; i++) { %>
+                    <li class="page-item <%= i === currentPage ? 'active' : '' %>">
+                        <a class="page-link"
+                           href="/territorios?page=<%= i %><%= searchTerm ? '&search=' + encodeURIComponent(searchTerm) : '' %>">
+                            <%= i %>
+                        </a>
+                    </li>
+                <% } %>
+
+                <li class="page-item <%= currentPage === totalPages ? 'disabled' : '' %>">
+                    <a class="page-link"
+                       href="/territorios?page=<%= currentPage + 1 %><%= searchTerm ? '&search=' + encodeURIComponent(searchTerm) : '' %>"
+                       aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
     <% } else { %>
-        <div class="alert alert-info text-center" role="alert">
-            No hay territorios registrados en el reino aún. ¡Es hora de delimitar nuestras tierras!
+        <div class="alert alert-info text-center mb-5" role="alert">
+            No hay territorios registrados en el reino<%= searchTerm ? ' que coincidan con la búsqueda.' : ' aún.' %> ¡Es hora de delimitar nuestras tierras!
             <a href="/territorios/nuevo" class="alert-link">Añadir el primer territorio.</a>
         </div>
     <% } %>

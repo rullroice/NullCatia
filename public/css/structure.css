@@ -1,5 +1,5 @@
 * {
-    box-sizing: border-box; /* Asegura que padding y border se incluyan en el ancho/alto */
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
@@ -7,18 +7,17 @@
 body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Asegura que el cuerpo ocupe al menos el alto de la ventana */
+    min-height: 100vh;
 }
 
-/* Contenedor principal de contenido para centrar y limitar el ancho */
+
 .main-container {
-    max-width: 1200px; /* Ancho máximo para el contenido */
-    margin: 0 auto;    /* Centra el contenedor horizontalmente */
-    padding: 20px;     /* Espaciado interno */
-    flex-grow: 1;      /* Permite que el contenedor principal ocupe el espacio restante */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;   
+    flex-grow: 1; 
 }
 
-/* Estructura del encabezado del sitio */
 .site-header {
     background-color: var(--color-background-dark);
     color: var(--color-text-light);
@@ -28,23 +27,21 @@ body {
     align-items: center;
 }
 
-/* Estructura del pie de página del sitio */
 .site-footer {
     background-color: var(--color-background-dark);
     color: var(--color-text-light);
     padding: 20px;
     text-align: center;
-    margin-top: auto; /* Empuja el footer hacia abajo */
+    margin-top: auto;
 }
 
-/* Media Queries básicas para responsividad */
 @media (max-width: 768px) {
     .main-container {
-        padding: 15px; /* Reduce el padding en pantallas más pequeñas */
+        padding: 15px;
     }
 
     .site-header {
-        flex-direction: column; /* Apila elementos del header en móvil */
+        flex-direction: column;
         text-align: center;
     }
 }

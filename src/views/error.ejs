@@ -1,0 +1,30 @@
+<%- include('./partials/header', { title: typeof title !== 'undefined' ? title : 'Error en NullCatia' }) %>
+<%- include('./partials/navbar') %>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card text-center border-danger mb-3">
+                <div class="card-header bg-danger text-white">
+                    <h2 class="card-title mb-0"><i class="fas fa-exclamation-triangle me-2"></i>¡Algo salió mal!</h2>
+                </div>
+                <div class="card-body">
+                    <% if (typeof title !== 'undefined' && title) { %>
+                        <h3 class="card-subtitle mb-3 text-danger"><%= title %></h3>
+                    <% } %>
+                    <p class="card-text">
+                        <%= typeof message !== 'undefined' ? message : 'Ha ocurrido un error inesperado. Por favor, inténtalo de nuevo más tarde o contacta al administrador.' %>
+                    </p>
+                    <hr>
+                    <p class="card-text text-muted">
+                        Si el problema persiste, revisa los logs del servidor para más detalles.
+                    </p>
+                    <a href="/" class="btn btn-primary mt-3">Volver al Inicio</a>
+                    <a href="/gatitos" class="btn btn-secondary mt-3 ms-2">Ver Gatitos</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('./partials/footer') %>

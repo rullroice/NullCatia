@@ -4,15 +4,27 @@
 <div class="container mt-4">
     <h1 class="mb-4"><%= typeof cat !== 'undefined' && cat.id ? 'Editar Gatito' : 'Nuevo Gatito' %></h1>
 
+    <% if (typeof errors !== 'undefined' && errors.length > 0) { %>
+        <div class="alert alert-danger" role="alert">
+            <h4 class="alert-heading">¡Ups! Hubo algunos problemas:</h4>
+            <ul>
+                <% errors.forEach(error => { %>
+                    <li><%= error.msg %></li>
+                <% }); %>
+            </ul>
+        </div>
+    <% } %>
+
     <form action="<%= typeof cat !== 'undefined' && cat.id ? '/gatitos/' + cat.id + '/editar?_method=PUT' : '/gatitos' %>" method="POST">
         <div class="mb-3">
             <label for="name" class="form-label">Nombre del Gatito:</label>
-            <input type="text" class="form-control" id="name" name="name" value="<%= typeof cat !== 'undefined' && cat.name ? cat.name : '' %>" required>
+            <input type="text" class="form-control" id="name" name="name" value="<%= cat.name || '' %>" required>
         </div>
 
         <div class="mb-3">
             <label for="birth_date" class="form-label">Fecha de Nacimiento:</label>
-            <input type="date" class="form-control" id="birth_date" name="birth_date" value="<%= typeof cat !== 'undefined' && cat.birth_date ? cat.birth_date.toISOString().substring(0, 10) : '' %>" required>
+            <input type="date" class="form-control" id="birth_date" name="birth_date" 
+                   value="<%= cat.birth_date ? new Date(cat.birth_date).toISOString().substring(0, 10) : '' %>">
         </div>
 
         <div class="mb-3">
@@ -21,7 +33,7 @@
                 <option value="">Selecciona un Clan</option>
                 <% if (clans && clans.length > 0) { %>
                     <% clans.forEach(clan => { %>
-                        <option value="<%= clan.id %>" <%= typeof cat !== 'undefined' && cat.clan_id === clan.id ? 'selected' : '' %>>
+                        <option value="<%= clan.id %>" <%= (cat.clan_id == clan.id) ? 'selected' : '' %>>
                             <%= clan.name %>
                         </option>
                     <% }); %>
@@ -30,17 +42,27 @@
         </div>
 
         <div class="mb-3">
-            <label for="territory_id" class="form-label">Territorio:</label>
-            <select class="form-select" id="territory_id" name="territory_id" required>
+            <label for="territory_id" class="form-label">Territorio (Opcional):</label>
+            <select class="form-select" id="territory_id" name="territory_id">
                 <option value="">Selecciona un Territorio</option>
                 <% if (territories && territories.length > 0) { %>
                     <% territories.forEach(territory => { %>
-                        <option value="<%= territory.id %>" <%= typeof cat !== 'undefined' && cat.territory_id === territory.id ? 'selected' : '' %>>
+                        <option value="<%= territory.id %>" <%= (cat.territory_id == territory.id) ? 'selected' : '' %>>
                             <%= territory.name %>
                         </option>
                     <% }); %>
                 <% } %>
             </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="role" class="form-label">Rol:</label> 
+            <input type="text" class="form-control" id="role" name="role" value="<%= cat.role || '' %>" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="special_ability" class="form-label">Habilidad Especial:</label> 
+            <textarea class="form-control" id="special_ability" name="special_ability" rows="3" required><%= cat.special_ability || '' %></textarea>
         </div>
 
         <button type="submit" class="btn btn-primary">
