@@ -1,9 +1,3 @@
-Aquí tienes el contenido completo para tu `README.md` sobre el proyecto NullCatia, con los espacios indicados para que puedas insertar tus capturas de pantalla.
-
-Una vez que tengas las capturas listas, simplemente edita este archivo Markdown y pega las imágenes en los lugares correspondientes. ¡Espero que te sea muy útil para tus entregables\!
-
------
-
 # Proyecto NullCatia: Gestión del Reino Felino
 
 ## 1\. Descripción General
@@ -211,14 +205,6 @@ En todas las listas (Gatitos, Clanes, Territorios, Pergaminos), encontrarás bot
 
 -----
 
-## 9\. Desarrollo Adicional
+## 9\. Conclusión 
 
-Si deseas contribuir o ampliar el proyecto, aquí tienes algunas ideas:
-
-  * **Autenticación y Autorización:** Implementar un sistema de inicio de sesión y roles de usuario.
-  * **Relación muchos a muchos en `cat_parchment`:** Restablecer y utilizar la tabla `cat_parchment` para un historial de consultas de pergaminos por gato.
-  * **Mejoras en la UI/UX:** Añadir más estilos CSS personalizados, animaciones, o una interfaz de usuario más interactiva.
-  * **API REST:** Crear endpoints RESTful para interactuar con los datos desde otras aplicaciones.
-  * **Dashboard de Estadísticas:** Visualizar datos interesantes del reino (ej. distribución de clanes por territorio).
-
------
+Aqui ira la conclusión del Readme (Editar más tarde)
