@@ -39,49 +39,6 @@ En el mundo de NullCatia, cada elemento juega un papel crucial:
 
 El proyecto sigue una arquitectura **Modelo-Vista-Controlador (MVC)**, lo que facilita su mantenimiento y escalabilidad.
 
-```
-NullCatia/
-├── config/             # Configuración de la base de datos
-│   └── db.js           # Conexión y pool de MySQL/MariaDB
-├── node_modules/       # Dependencias de Node.js (generada por npm install)
-├── public/             # Archivos estáticos (CSS, JS del cliente, imágenes)
-│   ├── css/
-│   ├── js/
-│   └── img/
-├── src/
-│   ├── controllers/    # Lógica de negocio y manejo de peticiones
-│   │   ├── catController.js
-│   │   ├── clanController.js
-│   │   ├── scrollController.js
-│   │   └── territoryController.js
-│   ├── models/         # Interacción con la base de datos
-│   │   ├── catModel.js
-│   │   ├── clanModel.js
-│   │   ├── scrollModel.js
-│   │   └── territoryModel.js
-│   ├── routes/         # Definición de rutas URL
-│   │   ├── catRoutes.js
-│   │   ├── clanRoutes.js
-│   │   ├── scrollRoutes.js
-│   │   └── territoryRoutes.js
-│   ├── views/          # Plantillas EJS para la interfaz de usuario
-│   │   ├── cats/           # Vistas relacionadas con gatitos
-│   │   ├── clans/          # Vistas relacionadas con clanes
-│   │   ├── partials/       # Partes reutilizables de las vistas (header, navbar, footer)
-│   │   ├── scrolls/        # Vistas relacionadas con pergaminos
-│   │   └── territories/    # Vistas relacionadas con territorios
-│   │   └── 404.ejs         # Página de error 404
-│   │   └── error.ejs       # Página de error genérica
-│   │   └── index.ejs       # Página de inicio
-│   ├── app.js          # Archivo principal de la aplicación Express
-│   └── server.js       # (Opcional, si app.js se exporta. Aquí asumo app.js es el punto de entrada)
-├── .env                # Variables de entorno (ej. credenciales de DB)
-├── package.json        # Metadatos del proyecto y dependencias
-├── package-lock.json   # Bloqueo de versiones de dependencias
-├── nullcatia.sql       # Script SQL para la creación y seed de la base de datos
-└── README.md           # Este manual
-```
-
 **[¡ESPACIO PARA CAPTURA DE PANTALLA: Estructura de carpetas principal del proyecto NullCatia]**
 
 -----
