@@ -156,7 +156,7 @@ Aquí te mostramos cómo interactuar con las principales funcionalidades de Null
 
 Al acceder a `http://localhost:3000`, serás recibido por la página principal del reino de NullCatia. Esta página sirve como portal de entrada y presenta la narrativa del mundo felino.
 
-**[¡ESPACIO PARA CAPTURA DE PANTALLA: Página de Inicio del programa NullCatia]**
+![image](https://github.com/user-attachments/assets/fa6efe35-11b8-442d-82b6-99f3a641493b)
 
 ### 8.2. Gestión de Clanes y Territorios (Creación)
 
