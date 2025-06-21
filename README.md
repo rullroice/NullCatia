@@ -122,15 +122,6 @@ graph TD
 
     ---
 
-* **`middleware/`**: Aquí se ubican las funciones de **Middleware** que actúan como capas intermedias de procesamiento de las peticiones. Esto incluye funcionalidades transversales como la **autenticación** ( `authMiddleware.js`) y el **manejo de errores global** ( `errorMiddleware.js`). El middleware de autenticación verifica las credenciales y controla el acceso a las rutas, mientras que el middleware de errores centraliza el manejo de excepciones, proporcionando respuestas consistentes y evitando que el servidor se caiga.
-
-    ---
-
-    ##### Captura de Pantalla: Estructura de la carpeta `middleware/`
-
-    [Espacio para una captura de pantalla del explorador de archivos mostrando los archivos de middleware definidos dentro de la carpeta `middleware/`.]
-
-    ---
 
 * **`views/`**: Esta carpeta contiene las **Vistas** de la aplicación, construidas con EJS. El archivo `index.ejs` es la vista principal. La subcarpeta `views/partials/` contiene fragmentos de HTML reutilizables ( `footer.ejs`, `header.ejs`, y `navbar.ejs`) que se incluyen en las vistas para evitar la duplicación de código y mantener una interfaz consistente.
 
