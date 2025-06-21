@@ -184,7 +184,7 @@ Para añadir un nuevo gatito al reino:
       * **Habilidad Especial:** Obligatorio. Describe su habilidad única (ej. "Invoca el Pool de Conexiones Eternas...").
 4.  Haz clic en "Crear Gatito".
 
-**[¡ESPACIO PARA CAPTURA DE PANTALLA: Formulario de Creación de Gatito, con campos llenos]**
+![image](https://github.com/user-attachments/assets/9a7982f9-a3ef-44b0-a048-12aeceb8efb5)
 
 ### 8.4. Lista de Gatitos
 
