@@ -73,7 +73,7 @@ La base de datos `nullcatia` consta de las siguientes tablas principales y sus r
   * Un `territory` puede contener muchos `cats` (One-to-Many: `territories.id` -\> `cats.territory_id`).
   * Un `cat` puede estar asociado a un `scroll` (One-to-Many: `cats.id` -\> `scrolls.cat_id`). Cada `scroll` se asocia a un único `cat`.
 
-**[¡ESPACIO PARA CAPTURA DE PANTALLA: Diagrama de Relación de Entidades (ERD) de la base de datos nullcatia]**
+![BaseDeDatos](https://github.com/user-attachments/assets/ee06da2f-d61d-44fb-946d-b706af3624fc)
 
 -----
 
