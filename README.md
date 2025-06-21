@@ -37,7 +37,7 @@ En el mundo de NullCatia, cada elemento juega un papel crucial:
 
 El proyecto sigue una arquitectura **Modelo-Vista-Controlador (MVC)**, lo que facilita su mantenimiento y escalabilidad.
 
-**[¡ESPACIO PARA CAPTURA DE PANTALLA: Estructura de carpetas principal del proyecto NullCatia]**
+![Estructura](https://github.com/user-attachments/assets/0857ed81-826c-4619-aae2-0d4389e1bf21)
 
 -----
 
