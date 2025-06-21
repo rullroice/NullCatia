@@ -211,7 +211,6 @@ En todas las listas (Gatitos, Clanes, Territorios, Pergaminos), encontrarás bot
 
 ## 9\. Conclusión 
 
-¡Por supuesto, felipe! Aquí tienes una conclusión para tu documento del **Proyecto NullCatia: Gestión del Reino Felino**, en un tono coherente y unificado con el resto del texto:
 
 ---
 
