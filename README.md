@@ -190,7 +190,7 @@ Para añadir un nuevo gatito al reino:
 
 Después de crear o editar gatitos, puedes ver una lista completa de todos los habitantes felinos.
 
-**[¡ESPACIO PARA CAPTURA DE PANTALLA: Vista de la Lista de Gatitos (cats/list) sin filtros]**
+![image](https://github.com/user-attachments/assets/d8f7153f-68f0-4b43-9349-dc32e0978a8b)
 
 ### 8.5. Uso de Filtros en la Lista de Gatitos
 
@@ -201,7 +201,7 @@ La lista de gatitos permite filtrar y paginar para encontrar información rápid
       * Para borrar la búsqueda, haz clic en "Limpiar búsqueda".
 2.  **Paginación:** Si hay muchos gatitos, utiliza los controles de paginación (\<\< 1 2 3 \>\>) en la parte inferior de la tabla para navegar entre las páginas.
 
-**[¡ESPACIO PARA CAPTURA DE PANTALLA: Vista de la Lista de Gatitos con el campo de búsqueda lleno o con un filtro aplicado]**
+![image](https://github.com/user-attachments/assets/18860893-5908-4bb4-878a-b87d17c6f253)
 
 ### 8.6. Edición y Eliminación de Entradas
 
