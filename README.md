@@ -167,7 +167,7 @@ Puedes añadir nuevos clanes o territorios desde sus respectivas secciones. Aqu�
 3.  Completa los campos "Nombre del Territorio" y "Descripción".
 4.  Haz clic en "Guardar Territorio".
 
-**[¡ESPACIO PARA CAPTURA DE PANTALLA: Formulario de Creación de Territorio (o Clan si lo prefieres)]**
+![image](https://github.com/user-attachments/assets/f6771ea3-9990-4acb-bd41-89c5567bc84c)
 
 ### 8.3. Formulario de Alta de Gatito
 
